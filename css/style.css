@@ -835,6 +835,7 @@ p {
         text-align:center;
     }
 }
+
 @media (max-width: 767px) {
     .info-mail {
         width:90%;

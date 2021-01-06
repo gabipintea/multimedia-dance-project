@@ -2,6 +2,28 @@
 // Start the session
 session_start();
 ?>
+
+<!-- 
+    
+    TODO:
+
+    Cata:
+        butoane de efecte pe video( blur, contrast, hue )
+        svg de schimbat iconitele de la pluton
+        ceva cu canvas
+        audio (scroll to insanity)
+        img effects, ca la video (tot alea de la portofoliu)
+        animations - 1 stanga-dreapta, 2 flip orizontal, 3 opacity
+        sa fuga volumul
+
+    Gabi:
+        pwa
+        webrtc, geo sau accelerometru , sppech recognition(nope)
+
+
+
+-->
+
 <!DOCTYPE html>
 <html lang="ro">
     
@@ -18,7 +40,8 @@ session_start();
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/pluton.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="css/pluton.css" /> -->
+        <link rel="stylesheet" type="text/css" href="css/multimedia.css">
         <!--[if IE 7]>
             <link rel="stylesheet" type="text/css" href="css/pluton-ie7.css" />
         <![endif]-->
@@ -325,7 +348,7 @@ session_start();
                     <!-- Start details for portfolio project 5 -->
                     <div id="slidingDiv4" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <video width="100%" controls>
+                            <video class="vodaVid" width="100%" controls>
   									<source src="movies/movie-vodafone.mp4" type="video/mp4">
   							</video> 
                         </div>

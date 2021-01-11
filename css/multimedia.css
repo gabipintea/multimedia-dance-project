@@ -1,0 +1,45 @@
+:root {
+  --purple: #2053ce;
+}
+
+.buttonContainer {
+  padding: 10px 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.buttonTitle {
+  font-weight: 100;
+  padding-bottom: 10px;
+}
+
+.bContainer {
+  flex: 33%;
+  display: flex;
+  justify-content: center;
+}
+
+.mButton,
+.mButton:focus {
+  background-color: transparent;
+  height: 47px;
+  border: 2px solid var(--purple);
+  border-radius: 15px;
+  color: var(--purple);
+  width: 90%;
+  outline: none;
+}
+
+.mButton:hover {
+  border-color: white;
+  color: white;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+#buttPad {
+  padding-top: 5px;
+}

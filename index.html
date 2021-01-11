@@ -8,11 +8,11 @@ session_start();
     TODO:
 
     Cata:
-        butoane de efecte pe video( blur, contrast, hue )
+        butoane de efecte pe video( blur, contrast, hue ) - DONE
         svg de schimbat iconitele de la pluton
         ceva cu canvas
         audio (scroll to insanity)
-        img effects, ca la video (tot alea de la portofoliu)
+        img effects, ca la video (tot alea de la portofoliu) - DONE
         animations - 1 stanga-dreapta, 2 flip orizontal, 3 opacity
         sa fuga volumul
 
@@ -21,6 +21,8 @@ session_start();
 
 
 
+
+        
 -->
 
 <!DOCTYPE html>
@@ -56,6 +58,8 @@ session_start();
         <!-- Fav and touch icons -->
         
         <link rel="shortcut icon" href="images/ico/favicon.ico">
+        <!-- Load Scripts-->
+        <script type="text/javascript" src="js/multimedia-scripts.js"></script>
         <link rel="icon" type="image/x-icon" href="images/ico/favicon.ico">
 
         <link rel="apple-touch-icon" href="images/ico/icon-144x144.png">         
@@ -106,7 +110,7 @@ session_start();
                         <!-- logo -->
                     </a>
                     <!-- buton hamburger pentru rezolutii mici -->
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <button type="mButton" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                         <i class="icon-menu"></i>
                     </button>
 
@@ -132,7 +136,13 @@ session_start();
             </div>
         </div>
     </header>
-
+    <iframe src="audio/silence.mp3" allow="autoplay" style="display: none" ></iframe>
+    <audio id="music" hidden="true" autoplay muted>
+        <source src="audio/bg.mp3" type="audio/mp3" />
+    </audio>
+    <script>
+     document.getElementsByClassName("button").addEventListener('click', () => {document.getElementById("music").muted = false})
+    </script>
         <!-- Start home section -->
         <section id="home">
             <!-- Start cSlider -->
@@ -255,7 +265,7 @@ session_start();
                 <div id="single-project">
                     <div id="slidingDiv" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <img src="images/Portfolio01.png" alt="project 1" />
+                            <img id="img1" src="images/Portfolio01.png" alt="project 1" />
                         </div>
                         <div class="span6">
                             <div class="project-description">
@@ -274,6 +284,27 @@ session_start();
                                         <span>Locatie</span>Paris, Franta</div>
                                 </div>
                                 <p>In luna aprilie, am cucerit medalia de aur in cadrul competitiei internationale Paris Open 2017 si dorim sa multumim tuturor celor ce ne-au sustinut si ajutat pentru a ajunge la aceasta perfomanta.</p>
+                                <div class="buttonContainer">
+                                    <div class="buttonTitle">
+                                        Efecte Poza
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('blur','img1')">Blur</button>
+                                        </div >
+                                        <div class="bContainer"> 
+                                            <button class="mButton" onclick="handleEffect('contrast','img1')">Contrast</button>
+                                        </div>
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('hue','img1')">Hue</button>
+                                        </div>
+                                    </div>
+                                    <div class="buttons" id="buttPad">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('','img1')">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -281,7 +312,7 @@ session_start();
                     <!-- Start details for portfolio project 2 -->
                     <div id="slidingDiv1" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <img src="images/Portfolio02.png" alt="project 2">
+                            <img id="img2" src="images/Portfolio02.png" alt="project 2">
                         </div>
                         <div class="span6">
                             <div class="project-description">
@@ -302,6 +333,27 @@ session_start();
                                         <span>Locatie</span>Constanta, Romania</div>
                                 </div>
                                 <p>Incepand cu anul 2015 am creat momente unice pentru evenimentele tale. Aceasta este doar o nunta in cadrul careia am participat, una din multele spectacole desfasurate.</br>Adrian:"Cuplul de dansatori a fost formidabil, iar momentul a fost spectaculos, incantand invitatii cu un strop de culoare si energie. Multumesc mult lui Gabriel si Andradei!"</p>
+                                <div class="buttonContainer">
+                                    <div class="buttonTitle">
+                                        Efecte Poza
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('blur','img2')">Blur</button>
+                                        </div >
+                                        <div class="bContainer"> 
+                                            <button class="mButton" onclick="handleEffect('contrast','img2')">Contrast</button>
+                                        </div>
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('hue','img2')">Hue</button>
+                                        </div>
+                                    </div>
+                                    <div class="buttons" id="buttPad">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('','img2')">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -309,7 +361,7 @@ session_start();
                     <!-- Start details for portfolio project 3 -->
                     <div id="slidingDiv2" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <img src="images/Portfolio03.png" alt="project 3">
+                            <img id="img3" src="images/Portfolio03.png" alt="project 3">
                         </div>
                         <div class="span6">
                             <div class="project-description">
@@ -330,6 +382,27 @@ session_start();
                                         <span>Locatie</span>Bucuresti, Romania</div>
                                 </div>
                                 <p>In anul 2017 suntem pusi pe fapte mari. Am inceput anul in forta cu antrenamente pline de dedicare si pasiune alaturi de clubul Hobbydance, in cadrul primului cantonament din acest an.</p>
+                                <div class="buttonContainer">
+                                    <div class="buttonTitle">
+                                        Efecte Poza
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('blur','img3')">Blur</button>
+                                        </div >
+                                        <div class="bContainer"> 
+                                            <button class="mButton" onclick="handleEffect('contrast','img3')">Contrast</button>
+                                        </div>
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('hue','img3')">Hue</button>
+                                        </div>
+                                    </div>
+                                    <div class="buttons" id="buttPad">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('','img3')">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -337,7 +410,7 @@ session_start();
                     <!-- Start details for portfolio project 4 -->
                     <div id="slidingDiv3" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <img src="images/Portfolio04.png" alt="project 4">
+                            <img id="img4" src="images/Portfolio04.png" alt="project 4">
                         </div>
                         <div class="span6">
                             <div class="project-description">
@@ -356,6 +429,27 @@ session_start();
                                         <span>Locatie</span>Moscova, Federatia Rusa</div>
                                 </div>
                                 <p>In luna aprilie, am reprezentat Romania in cadrul uneia dintre cele mai mari competitii, tinuta in tara de referinta din lumea dansului si a sportului, in general.</p>
+                                <div class="buttonContainer">
+                                    <div class="buttonTitle">
+                                        Efecte Poza
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('blur','img4')">Blur</button>
+                                        </div >
+                                        <div class="bContainer"> 
+                                            <button class="mButton" onclick="handleEffect('contrast','img4')">Contrast</button>
+                                        </div>
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('hue','img4')">Hue</button>
+                                        </div>
+                                    </div>
+                                    <div class="buttons" id="buttPad">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('','img4')">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -363,7 +457,7 @@ session_start();
                     <!-- Start details for portfolio project 5 -->
                     <div id="slidingDiv4" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <video class="vodaVid" width="100%" controls>
+                            <video id="vodaVid" width="100%" controls>
   									<source src="movies/movie-vodafone.mp4" type="video/mp4">
   							</video> 
                         </div>
@@ -386,6 +480,27 @@ session_start();
                                         <span>Link</span><a href="https://www.youtube.com/watch?v=r--ScGK9WSs">YouTube 1</a> / <a href="https://www.youtube.com/watch?v=s4SU_uMbhl8">YouTube 2</a></div>
                                 </div>
                                 <p>In anul 2016 am luat parte la spot-urile publicitare Vodafone Romania si am devenit astfel imaginea Vodafone pe ringul de dans. Am filmat aceasta reclama ce sugera puterea de a trece peste obstacole.</p>
+                                <div class="buttonContainer">
+                                    <div class="buttonTitle">
+                                        Efecte Video
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('blur')">Blur</button>
+                                        </div >
+                                        <div class="bContainer"> 
+                                            <button class="mButton" onclick="handleEffect('contrast')">Contrast</button>
+                                        </div>
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('hue')">Hue</button>
+                                        </div>
+                                    </div>
+                                    <div class="buttons" id="buttPad">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect()">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -393,7 +508,7 @@ session_start();
                     <!-- Start details for portfolio project 6 -->
                     <div id="slidingDiv5" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <img src="images/Portfolio06.png" alt="project 6">
+                            <img id="img6" src="images/Portfolio06.png" alt="project 6">
                         </div>
                         <div class="span6">
                             <div class="project-description">
@@ -412,6 +527,27 @@ session_start();
                                         <span>Locatie</span>Bucuresti, Romania & Stuttgart, Germania</div>
                                 </div>
                                 <p>Alaturi de antrenorul nostru de suflet, care ne-a crescut si educat inca de mici copii, ne-am pregatit intens pentru sezonul competitional.</p>
+                                <div class="buttonContainer">
+                                    <div class="buttonTitle">
+                                        Efecte Poza
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('blur','img6')">Blur</button>
+                                        </div >
+                                        <div class="bContainer"> 
+                                            <button class="mButton" onclick="handleEffect('contrast','img6')">Contrast</button>
+                                        </div>
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('hue','img6')">Hue</button>
+                                        </div>
+                                    </div>
+                                    <div class="buttons" id="buttPad">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('','img6')">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -419,7 +555,7 @@ session_start();
                     <!-- Start details for portfolio project 7 -->
                     <div id="slidingDiv6" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <img src="images/Portfolio07.png" alt="project 7">
+                            <img id="img7" src="images/Portfolio07.png" alt="project 7">
                         </div>
                         <div class="span6">
                             <div class="project-description">
@@ -438,6 +574,27 @@ session_start();
                                         <span>Locatie</span>Romania</div>
                                 </div>
                                 <p>Ne bucuram pentru ocuparea titlului de vice-campioni nationali ai Romaniei, in sfera dansului in formatie.</p>
+                                <div class="buttonContainer">
+                                    <div class="buttonTitle">
+                                        Efecte Poza
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('blur','img7')">Blur</button>
+                                        </div >
+                                        <div class="bContainer"> 
+                                            <button class="mButton" onclick="handleEffect('contrast','img7')">Contrast</button>
+                                        </div>
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('hue','img7')">Hue</button>
+                                        </div>
+                                    </div>
+                                    <div class="buttons" id="buttPad">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('','img7')">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -445,7 +602,7 @@ session_start();
                     <!-- Start details for portfolio project 8 -->
                     <div id="slidingDiv7" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <video width="100%" controls>
+                            <video id="olxVid" width="100%" controls>
   									<source src="movies/movie-olx.mp4" type="video/mp4">
   							</video> 
                         </div>
@@ -454,7 +611,27 @@ session_start();
                                 <div class="project-title clearfix">
                                     <h3>3 lucruri de vanzare</h3>
                                     <span class="show_hide close">
-                                        <i class="icon-cancel"></i>
+                                        <i class="icon-ca<div class="buttonContainer">
+                                            <div class="buttonTitle">
+                                                Efecte Video
+                                            </div>
+                                            <div class="buttons">
+                                                <div class="bContainer">
+                                                    <button class="mButton" onclick="handleEffect('blur')">Blur</button>
+                                                </div >
+                                                <div class="bContainer"> 
+                                                    <button class="mButton" onclick="handleEffect('contrast')">Contrast</button>
+                                                </div>
+                                                <div class="bContainer">
+                                                    <button class="mButton" onclick="handleEffect('hue')">Hue</button>
+                                                </div>
+                                            </div>
+                                            <div class="buttons" id="buttPad">
+                                                <div class="bContainer">
+                                                    <button class="mButton" onclick="handleEffect()">Reset</button>
+                                                </div>
+                                            </div>
+                                        </div>ncel"></i>
                                     </span>
                                 </div>
                                 <div class="project-info">
@@ -468,6 +645,27 @@ session_start();
                                         <span>Link</span><a href="https://www.youtube.com/watch?v=DqD71crfwIQ">YouTube</a></div>
                                 </div>
                                 <p>In anul 2016 am luat parte la spot-urile publicitare OLX in cadrul campaniei "3 lucruri de vanzare", dansand pe ritmuri de Jive, intr-o ambianta placuta, sugerand existenta unor lucruri de vanzare pana si intr-o sala de bal.</p>
+                                <div class="buttonContainer">
+                                    <div class="buttonTitle">
+                                        Efecte Video
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('blur','olxVid')">Blur</button>
+                                        </div >
+                                        <div class="bContainer"> 
+                                            <button class="mButton" onclick="handleEffect('contrast','olxVid')">Contrast</button>
+                                        </div>
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('hue','olxVid')">Hue</button>
+                                        </div>
+                                    </div>
+                                    <div class="buttons" id="buttPad">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('','olxVid')">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -475,7 +673,7 @@ session_start();
                     <!-- Start details for portfolio project 9 -->
                     <div id="slidingDiv8" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <img src="images/Portfolio09.png" alt="project 9">
+                            <img id="img9" src="images/Portfolio09.png" alt="project 9">
                         </div>
                         <div class="span6">
                             <div class="project-description">
@@ -494,6 +692,27 @@ session_start();
                                         <span>Locatie</span>Bucuresti, Romania</div>
                                 </div>
                                 <p>Oferim demonstratii de dans pentru orice eveniment. Am conceput un moment demonstrativ pentru a aduce dansul sportiv in prim plan si destainui putin din tainele dansului.</p>
+                                <div class="buttonContainer">
+                                    <div class="buttonTitle">
+                                        Efecte Poza
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('blur','img9')">Blur</button>
+                                        </div >
+                                        <div class="bContainer"> 
+                                            <button class="mButton" onclick="handleEffect('contrast','img9')">Contrast</button>
+                                        </div>
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('hue','img9')">Hue</button>
+                                        </div>
+                                    </div>
+                                    <div class="buttons" id="buttPad">
+                                        <div class="bContainer">
+                                            <button class="mButton" onclick="handleEffect('','img9')">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -737,7 +956,7 @@ session_start();
             <div class="triangle"></div>
             <div class="container centered">
                 <p class="large-text">Alege unul din pachetele noastre si incepe sa dansezi la fel ca un profesionist!</p>
-                <a href="#price" class="button">Danseaza cu noi!</a>
+                <a href="#price" class="mButton">Danseaza cu noi!</a>
             </div>
         </section>
 
@@ -799,7 +1018,7 @@ session_start();
                 </div>
                 <div class="centered">
                     <p class="price-text">Contacteaza-ne pentru o oferta personalizata!</p>
-                    <a href="#contact" class="button">Contacteaza-ne chiar acum!</a>
+                    <a href="#contact" class="mButton">Contacteaza-ne chiar acum!</a>
                 </div>
             </div>
         </section>

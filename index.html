@@ -17,11 +17,12 @@ session_start();
         sa fuga volumul
 
     Gabi:
-        pwa
-        webrtc, geo sau accelerometru , sppech recognition(nope)
+        weird technology implemented
 
 
 
+
+        
 -->
 
 <!DOCTYPE html>
@@ -34,6 +35,10 @@ session_start();
   		<meta name="author" content="Pintea Gabriel-Eugen">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Our Club</title>
+        <!-- PWA manifest -->
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="blue">
+        
         <!-- Load Roboto font -->
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <!-- Load css styles -->
@@ -48,11 +53,23 @@ session_start();
         <link rel="stylesheet" type="text/css" href="css/jquery.cslider.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
         <link rel="stylesheet" type="text/css" href="css/animate.css" />
+        
+        
         <!-- Fav and touch icons -->
         
         <link rel="shortcut icon" href="images/ico/favicon.ico">
         <!-- Load Scripts-->
         <script type="text/javascript" src="js/multimedia-scripts.js"></script>
+        <link rel="icon" type="image/x-icon" href="images/ico/favicon.ico">
+
+        <link rel="apple-touch-icon" href="images/ico/icon-144x144.png">         
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="blue">
+        <meta name="apple-mobile-web-app-title" content="Our club">
+
+        <meta name="msapplication-TileImage" content="images/ico/icon-144x144.png">
+        <meta name="msapplication-TileColor" content="#2053ce">
     </head>
     
     <body>
@@ -1048,8 +1065,7 @@ session_start();
                         <p>Ne poti contacta in orice mod doresti. Doar spune-ne ce crezi prin una din metodele de mai jos.</p>
                     </div>
                 </div>
-                <div class="map-wrapper">
-                    <!-- <div class="map-canvas" id="map-canvas">Loading map...</div> -->
+                <div class="map-wrapper">                    
                     <div class="container">
                         <div class="row">
                             <div class="span5 contact-form centered">
@@ -1162,7 +1178,7 @@ session_start();
         <script type="text/javascript" src="js/jquery.placeholder.js"></script>
         <script type="text/javascript" src="js/jquery.inview.js"></script>
         <!-- Load google maps api and call initializeMap function defined in app.js -->
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;callback=initializeMap"></script>
+        
         <!-- css3-mediaqueries.js for IE8 or older -->
         <!--[if lt IE 9]>
             <script src="js/respond.min.js"></script>

@@ -1,0 +1,32 @@
+{
+    "name": "Our Club",
+    "short_name": "Dance",
+    "icons": [
+        {
+            "src": "images/ico/icon-128x128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "images/ico/icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "images/ico/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "images/ico/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "lang": "en-US",
+    "background_color": "white",
+    "theme_color": "white",
+    "display": "standalone",
+    "start_url": "/multimedia-dance-project/index.html"
+}

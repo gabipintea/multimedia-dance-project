@@ -1,104 +1,81 @@
-<?php
-// Start the session
-session_start();
-?>
-
-<!-- 
-    
-    TODO:
-
-    Cata:
-        butoane de efecte pe video( blur, contrast, hue ) - DONE
-        svg de schimbat iconitele de la pluton
-        ceva cu canvas
-        audio (scroll to insanity)
-        img effects, ca la video (tot alea de la portofoliu) - DONE
-        animations - 1 stanga-dreapta, 2 flip orizontal, 3 opacity
-        sa fuga volumul
-
-    Gabi:
-        weird technology implemented       
--->
-
 <!DOCTYPE html>
 <html lang="ro">
-    
-    <head>
-        <meta charset="UTF-8">
-  		<meta name="description" content="Lectii de dans variate: lectii de grup sau private, pentru dans sportiv, dansuri standard si latino, dansuri sociale, cursuri de dans pentru copii si adulti pentru orice nivel. Oferim de asemenea momente de show pentru evenimentele tale, prin programe personalizate in functie de evenimentul tau.">
-  		<meta name="keywords" content="dans sportiv bucuresti show eveniment nunta">
-  		<meta name="author" content="Pintea Gabriel-Eugen">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Our Club</title>
-        <!-- PWA manifest -->
-        <link rel="manifest" href="manifest.json">
-        <meta name="theme-color" content="blue">
-        
-        <!-- Load Roboto font -->
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <!-- Load css styles -->
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/pluton.css" />
-        <link rel="stylesheet" type="text/css" href="css/multimedia.css">
-        <!--[if IE 7]>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Lectii de dans variate: lectii de grup sau private, pentru dans sportiv, dansuri standard si latino, dansuri sociale, cursuri de dans pentru copii si adulti pentru orice nivel. Oferim de asemenea momente de show pentru evenimentele tale, prin programe personalizate in functie de evenimentul tau.">
+    <meta name="keywords" content="dans sportiv bucuresti show eveniment nunta">
+    <meta name="author" content="Pintea Gabriel-Eugen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Club</title>
+
+    <!-- PWA manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="blue">
+
+    <!-- Load Roboto font -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet'
+        type='text/css'>
+
+    <!-- Load css styles -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/pluton.css" />
+    <link rel="stylesheet" type="text/css" href="css/multimedia.css">
+    <!--[if IE 7]>
             <link rel="stylesheet" type="text/css" href="css/pluton-ie7.css" />
         <![endif]-->
-        <link rel="stylesheet" type="text/css" href="css/jquery.cslider.css" />
-        <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
-        <link rel="stylesheet" type="text/css" href="css/animate.css" />
-        
-        
-        <!-- Fav and touch icons -->
-        
-        <link rel="shortcut icon" href="images/ico/favicon.ico">
-        <!-- Load Scripts-->
-        <script type="text/javascript" src="js/multimedia-scripts.js"></script>
-        <link rel="icon" type="image/x-icon" href="images/ico/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/jquery.cslider.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
 
-        <link rel="apple-touch-icon" href="images/ico/icon-144x144.png">         
 
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="blue">
-        <meta name="apple-mobile-web-app-title" content="Our club">
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
 
-        <meta name="msapplication-TileImage" content="images/ico/icon-144x144.png">
-        <meta name="msapplication-TileColor" content="#2053ce">
+    <!-- Load Scripts-->
+    <script type="text/javascript" src="js/multimedia-scripts.js"></script>
+    <link rel="icon" type="image/x-icon" href="images/ico/favicon.ico">
 
-        <!-- Leaflet maps -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    </head>
-    
-    <body>
+    <link rel="apple-touch-icon" href="images/ico/icon-144x144.png">
 
-    <style type="text/css">
-    .loader {
-        position: fixed;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        height: 100%;
-        z-index: 9000;
-        background: #000;
-    }
-    
-    .messagetwo {
-        display: none;
-        
-        position: absolute;
-        text-align: center;
-        margin-top: 250px;
-        margin-left: 350px;  
-        z-index: 9999;
-    }
-   
-    </style>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="blue">
+    <meta name="apple-mobile-web-app-title" content="Our club">
 
-    <div class="loader"></div>
-    
-    <div class="messagetwo"><h1>Join Our Club and dance like a pro!</h1></div>
+    <meta name="msapplication-TileImage" content="images/ico/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2053ce">
+
+    <!-- Leaflet maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <div class="loader">
+        <div id="loadbar"></div>
+        <div class="messagetwo">
+            <h1>Join Our Club and dance like a pro!</h1>
+        </div>
+        <svg id="dancers" width="200" height="200" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="couple-dancing-flamenco 1" clip-path="url(#clip0)">
+                <g id="Group">
+                    <path id="Vector"
+                        d="M31.777 13.857C31.35 13.319 30.498 11.908 30.498 11.908C30.498 11.908 31.549 10.841 31.797 10.591C32.044 10.339 31.142 9.974 30.44 10.118C29.737 10.263 29.257 10.61 29.257 10.61C29.257 10.61 28.509 9.915 27.467 9.777C26.423 9.639 25.163 9.744 25.163 9.744L25.007 11.643C25.007 11.643 24.346 11.672 24.288 11.938C24.227 12.203 24.415 12.863 24.515 13.385C24.19 13.444 21.552 12.755 21.366 12.202C21.178 11.651 21.544 10.234 22.174 8.877C22.803 7.519 22.156 5.806 21.879 4.802C21.525 3.523 20.608 2.351 19.673 2.382C18.738 2.411 18.444 2.795 18.196 3.346C17.952 3.897 17.783 5.471 17.783 5.471L17.72 6.223C17.72 6.223 16.406 4.764 16.347 4.449C16.287 4.135 16.209 3.649 16.149 3.307C16.09 2.965 15.688 2.392 15.638 2.106C15.589 1.821 15.474 0.893 14.89 0.532C14.307 0.172 12.482 -0.131 12.49 0.0589995C12.496 0.25 13.011 0.226 13.093 0.35C12.755 0.444 12.614 0.503 12.667 0.739C12.719 0.975 13.159 0.866 13.12 1.006C12.864 1.055 12.626 1.318 12.952 1.232C13.434 1.105 14.221 1.164 14.635 1.301C14.655 1.488 14.781 3.012 14.891 3.545C14.999 4.075 15.521 5.513 15.521 5.513C15.521 5.513 13.503 3.396 13.474 3.563C13.445 3.731 13.567 4.186 13.567 4.186C13.567 4.186 12.698 3.909 12.786 4.096C12.875 4.283 13.7 4.588 13.849 4.824C13.996 5.06 13.937 5.149 14.301 5.532C14.363 5.597 14.427 5.649 14.489 5.703C13.964 5.816 13.237 5.98 13.237 5.98C13.237 5.98 13.238 5.654 13.28 5.432C13.371 4.94 12.942 4.708 12.9 4.863C12.857 5.017 12.724 6.172 12.562 6.276C12.401 6.381 11.395 6.592 10.749 6.866C10.201 6.191 8.978 5.728 8.978 5.728L9.394 4.747C9.394 4.747 9.8 4.928 9.758 4.737C9.715 4.546 9.821 3.808 9.821 3.808L10.159 2.943C10.159 2.943 10.601 2.564 10.538 2.333C10.475 2.1 9.863 0.708 8.599 0.69C7.332 0.673 6.743 1.508 6.645 2.18C6.547 2.852 6.448 3.723 6.448 3.723C6.448 3.723 6.077 4.209 5.901 4.439C5.724 4.671 5.182 4.672 4.192 4.588C3.202 4.504 1.409 6.76 1.394 7.496C1.377 8.234 3.031 8.662 3.031 8.662C3.031 8.662 6.195 11.779 6.448 12.031C6.703 12.281 6.764 12.726 6.66 13.128C6.555 13.528 5.547 14.889 5.338 15.355C5.016 16.081 5.253 16.933 5.331 17.346C5.41 17.759 4.973 20.909 4.804 21.288C4.636 21.668 3.87 22.689 3.159 23.756C2.449 24.821 1.873 27.34 1.873 27.34C1.873 27.34 1.408 27.125 0.967 27.151C0.25 27.193 0.355 28.015 0.355 28.015V29.241C0.355 29.241 0.251 29.977 0.124 30.862C-0.00300003 31.747 1.01 32.382 1.579 32.466C2.148 32.55 2.105 31.77 2.105 31.77L1.979 30.863C1.979 30.863 2.864 29.009 2.864 28.523C2.864 28.037 2.991 27.785 3.038 27.657C3.085 27.529 4.833 25.149 4.833 25.149C4.833 25.149 4.657 25.614 5.052 25.504C5.448 25.396 7.319 21.64 7.319 21.64C7.319 21.64 6.66 24.606 6.567 25.023C6.474 25.44 6.951 25.459 6.951 25.459C6.951 25.459 7.251 28.081 7.22 29.243C7.188 30.405 6.787 31.244 6.725 31.391C6.663 31.537 6.746 32.256 6.746 32.256H8.35L8.56 32.087L8.792 32.256C8.792 32.256 10.626 32.256 11.091 32.256C11.555 32.256 12.019 31.834 11.513 31.644C11.007 31.454 10.388 31.27 10.388 31.27C10.388 31.27 9.425 30.885 9.152 30.547C8.878 30.21 8.687 29.767 8.711 28.918C8.735 28.068 9.008 26.022 9.008 26.022C9.008 26.022 9.215 25.994 9.287 25.716C9.358 25.438 9.868 24.158 10.011 23.337C10.152 22.514 10.543 20.469 10.67 18.107C10.797 15.746 10.696 11.424 10.691 11.128C10.685 10.83 12.019 10.896 12.062 10.673C12.105 10.449 11.892 8.935 11.892 8.935C11.892 8.935 12.905 8.587 13.306 8.45C13.705 8.312 13.579 7.76 13.579 7.76C13.579 7.76 13.833 7.54 14.183 7.325C14.532 7.109 15.077 6.715 15.22 6.607C15.362 6.501 15.357 6.404 15.357 6.404C15.357 6.404 15.404 6.39 15.453 6.336C15.735 6.546 16.122 6.997 16.363 7.423C16.631 7.894 15.452 8.598 15.032 9.194C14.594 9.817 15.141 10.7 16.469 10.848C16.175 11.87 17.139 14.085 17.139 14.085C17.139 14.085 16.775 14.508 16.804 14.783C16.834 15.058 17.262 20.468 17.5 22.557C17.737 24.648 18.575 31.637 19.339 31.493C20.103 31.349 21.462 30.863 21.751 30.916C22.039 30.969 21.083 31.966 21.174 32.255C21.268 32.544 21.438 32.543 22.414 32.255C22.725 32.163 22.726 31.797 23.04 31.336C23.355 30.874 24.179 30.549 24.244 30.206C24.309 29.865 24.107 29.603 24.107 29.603H24.109C24.109 29.603 24.086 29.328 24.259 29.247C24.435 29.166 26.289 28.502 26.364 28.286C26.438 28.071 25.395 27.463 25.395 27.463C25.395 27.463 26.04 27.335 26.052 27.025C26.067 26.716 27.108 25.781 27.586 25.459C28.065 25.135 28.675 24.737 28.462 24.566C28.248 24.397 28.335 23.902 28.702 23.634C28.866 23.513 29.369 22.765 29.673 21.849C30.042 20.729 30.214 19.374 30.329 18.818C30.538 17.808 32.218 16.495 32.33 15.766C32.439 15.037 32.203 14.396 31.777 13.857ZM29.828 19.158C29.828 19.158 28.332 21.625 27.991 22.045C27.649 22.466 27.69 21.36 27.204 21.94C26.718 22.52 24.999 24.617 24.369 24.96C23.74 25.301 25.098 25.544 24.579 25.825C24.062 26.107 22.517 26.963 22.157 27.063C21.797 27.164 22.791 27.393 22.243 27.688C21.696 27.983 20.949 28.309 20.196 28.502C19.444 28.693 18.675 28.764 18.675 28.764L18.202 26.403C18.202 26.403 19.819 26.164 20.431 25.981C21.483 25.669 20.53 25.174 20.982 24.939C21.435 24.705 23.039 23.999 23.457 23.656C24.238 23.017 22.436 23.561 22.917 22.979C23.399 22.396 25.026 20.655 25.683 20.196C26.337 19.737 25.945 20.996 26.523 20.525C27.101 20.051 28.115 18.677 28.36 18.03C28.47 17.739 28.649 18.455 28.779 18.11C28.939 17.692 29.093 16.988 29.042 16.237C28.991 15.486 28.727 14.781 28.238 14.226C27.915 13.858 28.281 14.856 27.967 14.566C27.277 13.932 24.977 13.622 24.977 13.622L24.595 11.97C24.595 11.97 26.366 11.593 27.704 12.023C28.768 12.365 27.967 11.388 28.491 11.599C29.016 11.809 29.646 12.469 30.145 13.151C30.644 13.834 30.906 14.858 30.984 15.618C31.062 16.377 29.828 19.158 29.828 19.158Z"
+                        fill="white" />
+                </g>
+            </g>
+            <defs>
+                <clipPath id="clip0">
+                    <rect width="32.471" height="32.471" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+    </div>
+
+
 
     <header>
         <div class="navbar">
@@ -114,9 +91,9 @@ session_start();
                     </button>
 
                     <style>
-                    .nav li a:focus {
-                          
-                          outline: 0 !important;
+                        .nav li a:focus {
+
+                            outline: 0 !important;
                         }
                     </style>
                     <!-- Main navigation -->
@@ -135,973 +112,762 @@ session_start();
             </div>
         </div>
     </header>
-    <iframe src="audio/silence.mp3" allow="autoplay" style="display: none" ></iframe>
+    <iframe src="audio/silence.mp3" allow="autoplay" style="display: none"></iframe>
     <audio id="music" hidden="true" autoplay muted>
         <source src="audio/bg.mp3" type="audio/mp3" />
     </audio>
     <!-- <script>
      document.getElementsByClassName("button")[0].addEventListener('click', () => {document.getElementById("music").muted = false})
     </script> -->
-        <!-- Start home section -->
-        <section id="home">
-            <!-- Start cSlider -->
-            <div id="da-slider" class="da-slider">
-                <div class="triangle"></div>
-                <!-- mask elemet use for masking background image -->
-                <div class="mask"></div>
-                <!-- All slides centred in container element -->
-                <div class="container">
-                    <!-- Start first slide -->
-                    <div class="da-slide">
-                        <h2 class="fittext2">Bine ai venit la Our Club</h2>
-                        <h4>Arta & Pasiune</h4>
-                        <p>Ia parte la o noua lume plina de pasiune, arta si frumusete. Alatura-te noua si putem incepe calatoria!</p>
-                        <a href="#" class="da-link button">MAI MULT</a>
-                        <div class="da-img">
-                            <img src="images/Slider01.png" alt="image01" width="320">
-                        </div>
-                    </div>
-                    <!-- End first slide -->
-                    <!-- Start second slide -->
-                    <div class="da-slide">
-                        <h2>Lectii de dans</h2>
-                        <h4>Perfecte pentru tine</h4>
-                        <p>Nu conteaza ce varsta ai! Oferim lectii de dans pentru toate varstele si nivelele. Vei invata Vals Lent, Tango, Cha-Cha, Salsa, Quick-Step si multe altele...</p>
-                        <a href="#" class="da-link button">MAI MULT</a>
-                        <div class="da-img">
-                            <img src="images/Slider02.png" width="320" alt="image02">
-                        </div>
-                    </div>
-                    <!-- End second slide -->
-                    <!-- Start third slide -->
-                    <div class="da-slide">
-                        <h2>Show-uri de dans sportiv</h2>
-                        <h4>Special pentru evenimentele tale</h4>
-                        <p>Avem pregatite momente de dans sportiv pentru evenimentele tale, pentru televiziune, pentru impresionarea invitatilor tai. Contacteaza-ne!</p>
-                        <a href="#" class="da-link button">MAI MULT</a>
-                        <div class="da-img">
-                            <img src="images/Slider03.png" width="320" alt="image03">
-                        </div>
-                    </div>
-                    <!-- End third slide -->
-                    <!-- Start cSlide navigation arrows -->
-                    <div class="da-arrows">
-                        <span class="da-arrows-prev"></span>
-                        <span class="da-arrows-next"></span>
-                    </div>
-                    <!-- End cSlide navigation arrows -->
-                </div>
-            </div>
-        </section>
-        <!-- End home section -->
-
-        <!-- Service section start -->
-        <section class="section primary-section" id="service">
-            <div class="container">
-                <!-- Start title section -->
-                <div class="title">
-                    <h1>Ce facem?</h1>
-                    <!-- Section's title goes here -->
-                    <p>Lectii de dans variate: lectii de grup sau private, pentru dans sportiv, dansuri standard si latino, dansuri sociale, cursuri de dans pentru copii si adulti pentru orice nivel. Oferim de asemenea momente de show pentru evenimentele tale, prin programe personalizate in functie de evenimentul tau.</p>
-                    <!--Simple description for section goes here. -->
-                </div>
-                <div class="row-fluid">
-                    <div class="span4">
-                        <div class="centered service">
-                            <div class="circle-border zoom-in">
-                                <img class="img-circle" src="images/Service1.png" alt="service 1" style="filter: hue-rotate(70deg) !important;">
-                            </div>
-                            <h3>Lectii de dans</h3>
-                            <p>Invata sa dansezi alaturi de noi! Dansul sportiv este cea mai armonioasa imbinare a artei si a sportului.</p>
-                        </div>
-                    </div>
-                    <div class="span4">
-                        <div class="centered service">
-                            <div class="circle-border zoom-in">
-                                <img class="img-circle" src="images/Service2.png" alt="service 2" />
-                            </div>
-                            <h3>Dansul mirilor</h3>
-                            <p>Noi te pregatim pentru ziua cea mare! Iti pregatim coregrafia si tot ce ai nevoie pentru a straluci pe ringul de dans.</p>
-                        </div>
-                    </div>
-                    <div class="span4">
-                        <div class="centered service">
-                            <div class="circle-border zoom-in">
-                                <img class="img-circle" src="images/Service3.png" alt="service 3">
-                            </div>
-                            <h3>Show</h3>
-                            <p>Aducem putina pasiune si entuziasm la evenimentul tau, in reclama ta, la prezentarea ta. Oferim momente de dans impresionante.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Service section end -->
-
-        <!-- Portfolio section start -->
-        <section class="section secondary-section " id="portfolio">
+    <!-- Start home section -->
+    <section id="home">
+        <!-- Start cSlider -->
+        <div id="da-slider" class="da-slider">
             <div class="triangle"></div>
+            <!-- mask elemet use for masking background image -->
+            <div class="mask"></div>
+            <!-- All slides centred in container element -->
             <div class="container">
-                <div class=" title">
-                    <h1>Portofoliu</h1>
-                    <p>Unele dintre numeroasele evenimente si competitii la care am participat. Priviti!</p>
+                <!-- Start first slide -->
+                <div class="da-slide">
+                    <h2 class="fittext2">Bine ai venit la Our Club</h2>
+                    <h4>Arta & Pasiune</h4>
+                    <p>Ia parte la o noua lume plina de pasiune, arta si frumusete. Alatura-te noua si putem incepe
+                        calatoria!</p>
+                    <a href="#" class="da-link button">MAI MULT</a>
+                    <div class="da-img">
+                        <img src="images/Slider01.png" alt="image01" width="320">
+                    </div>
                 </div>
-                <ul class="nav nav-pills">
-                    <li class="filter" data-filter="all">
-                        <a href="#noAction">Toate</a>
+                <!-- End first slide -->
+                <!-- Start second slide -->
+                <div class="da-slide">
+                    <h2>Lectii de dans</h2>
+                    <h4>Perfecte pentru tine</h4>
+                    <p>Nu conteaza ce varsta ai! Oferim lectii de dans pentru toate varstele si nivelele. Vei invata
+                        Vals Lent, Tango, Cha-Cha, Salsa, Quick-Step si multe altele...</p>
+                    <a href="#" class="da-link button">MAI MULT</a>
+                    <div class="da-img">
+                        <img src="images/Slider02.png" width="320" alt="image02">
+                    </div>
+                </div>
+                <!-- End second slide -->
+                <!-- Start third slide -->
+                <div class="da-slide">
+                    <h2>Show-uri de dans sportiv</h2>
+                    <h4>Special pentru evenimentele tale</h4>
+                    <p>Avem pregatite momente de dans sportiv pentru evenimentele tale, pentru televiziune, pentru
+                        impresionarea invitatilor tai. Contacteaza-ne!</p>
+                    <a href="#" class="da-link button">MAI MULT</a>
+                    <div class="da-img">
+                        <img src="images/Slider03.png" width="320" alt="image03">
+                    </div>
+                </div>
+                <!-- End third slide -->
+                <!-- Start cSlide navigation arrows -->
+                <div class="da-arrows">
+                    <span class="da-arrows-prev"></span>
+                    <span class="da-arrows-next"></span>
+                </div>
+                <!-- End cSlide navigation arrows -->
+            </div>
+        </div>
+    </section>
+    <!-- End home section -->
+
+    <!-- Service section start -->
+    <section class="section primary-section" id="service">
+        <div class="container">
+            <!-- Start title section -->
+            <div class="title">
+                <h1>Ce facem?</h1>
+                <!-- Section's title goes here -->
+                <p>Lectii de dans variate: lectii de grup sau private, pentru dans sportiv, dansuri standard si latino,
+                    dansuri sociale, cursuri de dans pentru copii si adulti pentru orice nivel. Oferim de asemenea
+                    momente de show pentru evenimentele tale, prin programe personalizate in functie de evenimentul tau.
+                </p>
+                <!--Simple description for section goes here. -->
+            </div>
+            <div class="row-fluid">
+                <div class="span4">
+                    <div class="centered service">
+                        <div class="circle-border zoom-in">
+                            <img class="img-circle" src="images/Service1.png" alt="service 1"
+                                style="filter: hue-rotate(70deg) !important;">
+                        </div>
+                        <h3>Lectii de dans</h3>
+                        <p>Invata sa dansezi alaturi de noi! Dansul sportiv este cea mai armonioasa imbinare a artei si
+                            a sportului.</p>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="centered service">
+                        <div class="circle-border zoom-in">
+                            <img class="img-circle" src="images/Service2.png" alt="service 2" />
+                        </div>
+                        <h3>Dansul mirilor</h3>
+                        <p>Noi te pregatim pentru ziua cea mare! Iti pregatim coregrafia si tot ce ai nevoie pentru a
+                            straluci pe ringul de dans.</p>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="centered service">
+                        <div class="circle-border zoom-in">
+                            <img class="img-circle" src="images/Service3.png" alt="service 3">
+                        </div>
+                        <h3>Show</h3>
+                        <p>Aducem putina pasiune si entuziasm la evenimentul tau, in reclama ta, la prezentarea ta.
+                            Oferim momente de dans impresionante.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Service section end -->
+
+    <!-- Portfolio section start -->
+    <section class="section secondary-section " id="portfolio">
+        <div class="triangle"></div>
+        <div class="container">
+            <div class=" title">
+                <h1>Portofoliu</h1>
+                <p>Unele dintre numeroasele evenimente si competitii la care am participat. Priviti!</p>
+            </div>
+            <ul class="nav nav-pills">
+                <li class="filter" data-filter="all">
+                    <a href="#noAction">Toate</a>
+                </li>
+                <li class="filter" data-filter="web">
+                    <a href="#noAction">Competitii</a>
+                </li>
+                <li class="filter" data-filter="photo">
+                    <a href="#noAction">Evenimente</a>
+                </li>
+                <li class="filter" data-filter="identity">
+                    <a href="#noAction">Antrenamente</a>
+                </li>
+            </ul>
+            <!-- Start details for portfolio project 1 -->
+            <div id="single-project">
+                <div id="slidingDiv" class="toggleDiv row-fluid single-project">
+                    <div class="span6">
+                        <img id="img1" src="images/Portfolio01.png" alt="project 1" />
+                    </div>
+                    <div class="span6">
+                        <div class="project-description">
+                            <div class="project-title clearfix">
+                                <h3>Paris Open 2017</h3>
+                                <span class="show_hide close">
+                                    <i class="icon-cancel"></i>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <span>Tip</span>Competitie
+                                </div>
+                                <div>
+                                    <span>Data</span>Mai 2017
+                                </div>
+                                <div>
+                                    <span>Locatie</span>Paris, Franta
+                                </div>
+                            </div>
+                            <p>In luna aprilie, am cucerit medalia de aur in cadrul competitiei internationale Paris
+                                Open 2017 si dorim sa multumim tuturor celor ce ne-au sustinut si ajutat pentru a ajunge
+                                la aceasta perfomanta.</p>
+                            <div class="buttonContainer">
+                                <div class="buttonTitle">
+                                    Efecte Poza
+                                </div>
+                                <div class="buttons">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('blur','img1')">Blur</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton"
+                                            onclick="handleEffect('contrast','img1')">Contrast</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('hue','img1')">Hue</button>
+                                    </div>
+                                </div>
+                                <div class="buttons" id="buttPad">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('','img1')">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End details for portfolio project 1 -->
+                <!-- Start details for portfolio project 2 -->
+                <div id="slidingDiv1" class="toggleDiv row-fluid single-project">
+                    <div class="span6">
+                        <img id="img2" src="images/Portfolio02.png" alt="project 2">
+                    </div>
+                    <div class="span6">
+                        <div class="project-description">
+                            <div class="project-title clearfix">
+                                <h3>Nunta Adrian & Consuella</h3>
+                                <span class="show_hide close">
+                                    <i class="icon-cancel"></i>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <span>Tip</span>Eveniment
+                                </div>
+                                <div>
+                                    <span>Alaturi de</span>Adrian & Consuella
+                                </div>
+                                <div>
+                                    <span>Data</span>Noiembrie 2015
+                                </div>
+                                <div>
+                                    <span>Locatie</span>Constanta, Romania
+                                </div>
+                            </div>
+                            <p>Incepand cu anul 2015 am creat momente unice pentru evenimentele tale. Aceasta este doar
+                                o nunta in cadrul careia am participat, una din multele spectacole
+                                desfasurate.</br>Adrian:"Cuplul de dansatori a fost formidabil, iar momentul a fost
+                                spectaculos, incantand invitatii cu un strop de culoare si energie. Multumesc mult lui
+                                Gabriel si Andradei!"</p>
+                            <div class="buttonContainer">
+                                <div class="buttonTitle">
+                                    Efecte Poza
+                                </div>
+                                <div class="buttons">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('blur','img2')">Blur</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton"
+                                            onclick="handleEffect('contrast','img2')">Contrast</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('hue','img2')">Hue</button>
+                                    </div>
+                                </div>
+                                <div class="buttons" id="buttPad">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('','img2')">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End details for portfolio project 2 -->
+                <!-- Start details for portfolio project 3 -->
+                <div id="slidingDiv2" class="toggleDiv row-fluid single-project">
+                    <div class="span6">
+                        <img id="img3" src="images/Portfolio03.png" alt="project 3">
+                    </div>
+                    <div class="span6">
+                        <div class="project-description">
+                            <div class="project-title clearfix">
+                                <h3>Hobbydance Camp</h3>
+                                <span class="show_hide close">
+                                    <i class="icon-cancel"></i>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <span>Tip</span>Stagiu de pregatire
+                                </div>
+                                <div>
+                                    <span>Alaturi de</span>C.D.S. Hobbydance Bucuresti
+                                </div>
+                                <div>
+                                    <span>Data</span>Februarie 2017
+                                </div>
+                                <div>
+                                    <span>Locatie</span>Bucuresti, Romania
+                                </div>
+                            </div>
+                            <p>In anul 2017 suntem pusi pe fapte mari. Am inceput anul in forta cu antrenamente pline de
+                                dedicare si pasiune alaturi de clubul Hobbydance, in cadrul primului cantonament din
+                                acest an.</p>
+                            <div class="buttonContainer">
+                                <div class="buttonTitle">
+                                    Efecte Poza
+                                </div>
+                                <div class="buttons">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('blur','img3')">Blur</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton"
+                                            onclick="handleEffect('contrast','img3')">Contrast</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('hue','img3')">Hue</button>
+                                    </div>
+                                </div>
+                                <div class="buttons" id="buttPad">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('','img3')">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End details for portfolio project 3 -->
+                <!-- Start details for portfolio project 4 -->
+                <div id="slidingDiv3" class="toggleDiv row-fluid single-project">
+                    <div class="span6">
+                        <img id="img4" src="images/Portfolio04.png" alt="project 4">
+                    </div>
+                    <div class="span6">
+                        <div class="project-description">
+                            <div class="project-title clearfix">
+                                <h3>Moscovia Championship 2017</h3>
+                                <span class="show_hide close">
+                                    <i class="icon-cancel"></i>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <span>Tip</span>Competitie
+                                </div>
+                                <div>
+                                    <span>Data</span>Aprilie 2017
+                                </div>
+                                <div>
+                                    <span>Locatie</span>Moscova, Federatia Rusa
+                                </div>
+                            </div>
+                            <p>In luna aprilie, am reprezentat Romania in cadrul uneia dintre cele mai mari competitii,
+                                tinuta in tara de referinta din lumea dansului si a sportului, in general.</p>
+                            <div class="buttonContainer">
+                                <div class="buttonTitle">
+                                    Efecte Poza
+                                </div>
+                                <div class="buttons">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('blur','img4')">Blur</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton"
+                                            onclick="handleEffect('contrast','img4')">Contrast</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('hue','img4')">Hue</button>
+                                    </div>
+                                </div>
+                                <div class="buttons" id="buttPad">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('','img4')">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End details for portfolio project 4 -->
+                <!-- Start details for portfolio project 5 -->
+                <div id="slidingDiv4" class="toggleDiv row-fluid single-project">
+                    <div class="span6">
+                        <video id="vodaVid" width="100%" controls>
+                            <source src="movies/movie-vodafone.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="span6">
+                        <div class="project-description">
+                            <div class="project-title clearfix">
+                                <h3>Ai puterea sa reusesti pe drumul tau</h3>
+                                <span class="show_hide close">
+                                    <i class="icon-cancel"></i>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <span>Tip</span>Spot publicitar
+                                </div>
+                                <div>
+                                    <span>Alaturi de</span>Vodafone
+                                </div>
+                                <div>
+                                    <span>Data</span>Februarie 2016
+                                </div>
+                                <div>
+                                    <span>Link</span><a href="https://www.youtube.com/watch?v=r--ScGK9WSs">YouTube 1</a>
+                                    / <a href="https://www.youtube.com/watch?v=s4SU_uMbhl8">YouTube 2</a>
+                                </div>
+                            </div>
+                            <p>In anul 2016 am luat parte la spot-urile publicitare Vodafone Romania si am devenit
+                                astfel imaginea Vodafone pe ringul de dans. Am filmat aceasta reclama ce sugera puterea
+                                de a trece peste obstacole.</p>
+                            <div class="buttonContainer">
+                                <div class="buttonTitle">
+                                    Efecte Video
+                                </div>
+                                <div class="buttons">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('blur')">Blur</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('contrast')">Contrast</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('hue')">Hue</button>
+                                    </div>
+                                </div>
+                                <div class="buttons" id="buttPad">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect()">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End details for portfolio project 5 -->
+                <!-- Start details for portfolio project 6 -->
+                <div id="slidingDiv5" class="toggleDiv row-fluid single-project">
+                    <div class="span6">
+                        <img id="img6" src="images/Portfolio06.png" alt="project 6">
+                    </div>
+                    <div class="span6">
+                        <div class="project-description">
+                            <div class="project-title clearfix">
+                                <h3>Antrenamente Marcel Rauta</h3>
+                                <span class="show_hide close">
+                                    <i class="icon-cancel"></i>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <span>Tip</span>Antrenament
+                                </div>
+                                <div>
+                                    <span>Data</span>Vara 2017
+                                </div>
+                                <div>
+                                    <span>Locatie</span>Bucuresti, Romania & Stuttgart, Germania
+                                </div>
+                            </div>
+                            <p>Alaturi de antrenorul nostru de suflet, care ne-a crescut si educat inca de mici copii,
+                                ne-am pregatit intens pentru sezonul competitional.</p>
+                            <div class="buttonContainer">
+                                <div class="buttonTitle">
+                                    Efecte Poza
+                                </div>
+                                <div class="buttons">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('blur','img6')">Blur</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton"
+                                            onclick="handleEffect('contrast','img6')">Contrast</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('hue','img6')">Hue</button>
+                                    </div>
+                                </div>
+                                <div class="buttons" id="buttPad">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('','img6')">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End details for portfolio project 6 -->
+                <!-- Start details for portfolio project 7 -->
+                <div id="slidingDiv6" class="toggleDiv row-fluid single-project">
+                    <div class="span6">
+                        <img id="img7" src="images/Portfolio07.png" alt="project 7">
+                    </div>
+                    <div class="span6">
+                        <div class="project-description">
+                            <div class="project-title clearfix">
+                                <h3>Campionatul National de Formatii</h3>
+                                <span class="show_hide close">
+                                    <i class="icon-cancel"></i>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <span>Tip</span>Competitie
+                                </div>
+                                <div>
+                                    <span>Data</span>Aprilie 2011
+                                </div>
+                                <div>
+                                    <span>Locatie</span>Romania
+                                </div>
+                            </div>
+                            <p>Ne bucuram pentru ocuparea titlului de vice-campioni nationali ai Romaniei, in sfera
+                                dansului in formatie.</p>
+                            <div class="buttonContainer">
+                                <div class="buttonTitle">
+                                    Efecte Poza
+                                </div>
+                                <div class="buttons">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('blur','img7')">Blur</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton"
+                                            onclick="handleEffect('contrast','img7')">Contrast</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('hue','img7')">Hue</button>
+                                    </div>
+                                </div>
+                                <div class="buttons" id="buttPad">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('','img7')">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End details for portfolio project 7 -->
+                <!-- Start details for portfolio project 8 -->
+                <div id="slidingDiv7" class="toggleDiv row-fluid single-project">
+                    <div class="span6">
+                        <video id="olxVid" width="100%" controls>
+                            <source src="movies/movie-olx.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="span6">
+                        <div class="project-description">
+                            <div class="project-title clearfix">
+                                <h3>3 lucruri de vanzare</h3>
+                                <span class="show_hide close">
+                                    <i class="icon-cancel"></i>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <span>Tip</span>Spot publicitar
+                                </div>
+                                <div>
+                                    <span>Alaturi de</span>OLX
+                                </div>
+                                <div>
+                                    <span>Data</span>Noiembrie 2016
+                                </div>
+                                <div>
+                                    <span>Link</span><a href="https://www.youtube.com/watch?v=DqD71crfwIQ">YouTube</a>
+                                </div>
+                            </div>
+                            <p>In anul 2016 am luat parte la spot-urile publicitare OLX in cadrul campaniei "3 lucruri
+                                de vanzare", dansand pe ritmuri de Jive, intr-o ambianta placuta, sugerand existenta
+                                unor lucruri de vanzare pana si intr-o sala de bal.</p>
+                            <div class="buttonContainer">
+                                <div class="buttonTitle">
+                                    Efecte Video
+                                </div>
+                                <div class="buttons">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('blur','olxVid')">Blur</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton"
+                                            onclick="handleEffect('contrast','olxVid')">Contrast</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('hue','olxVid')">Hue</button>
+                                    </div>
+                                </div>
+                                <div class="buttons" id="buttPad">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('','olxVid')">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End details for portfolio project 8 -->
+                <!-- Start details for portfolio project 9 -->
+                <div id="slidingDiv8" class="toggleDiv row-fluid single-project">
+                    <div class="span6">
+                        <img id="img9" src="images/Portfolio09.png" alt="project 9">
+                    </div>
+                    <div class="span6">
+                        <div class="project-description">
+                            <div class="project-title clearfix">
+                                <h3>Demonstratie de dans</h3>
+                                <span class="show_hide close">
+                                    <i class="icon-cancel"></i>
+                                </span>
+                            </div>
+                            <div class="project-info">
+                                <div>
+                                    <span>Tip</span>Antrenament
+                                </div>
+                                <div>
+                                    <span>Data</span>Iulie 2017
+                                </div>
+                                <div>
+                                    <span>Locatie</span>Bucuresti, Romania
+                                </div>
+                            </div>
+                            <p>Oferim demonstratii de dans pentru orice eveniment. Am conceput un moment demonstrativ
+                                pentru a aduce dansul sportiv in prim plan si destainui putin din tainele dansului.</p>
+                            <div class="buttonContainer">
+                                <div class="buttonTitle">
+                                    Efecte Poza
+                                </div>
+                                <div class="buttons">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('blur','img9')">Blur</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton"
+                                            onclick="handleEffect('contrast','img9')">Contrast</button>
+                                    </div>
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('hue','img9')">Hue</button>
+                                    </div>
+                                </div>
+                                <div class="buttons" id="buttPad">
+                                    <div class="bContainer">
+                                        <button class="mButton" onclick="handleEffect('','img9')">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End details for portfolio project 9 -->
+                <ul id="portfolio-grid" class="thumbnails row">
+                    <li class="span4 mix web">
+                        <div class="thumbnail">
+                            <img src="images/Portfolio01.png" alt="project 1">
+                            <a href="#single-project" class="more show_hide" rel="#slidingDiv">
+                                <i class="icon-plus"></i>
+                            </a>
+                            <h3>Paris Open 2017</h3>
+                            <p>Competitie</p>
+                            <div class="mask"></div>
+                        </div>
                     </li>
-                    <li class="filter" data-filter="web">
-                        <a href="#noAction">Competitii</a>
+                    <li class="span4 mix photo">
+                        <div class="thumbnail">
+                            <img src="images/Portfolio02.png" alt="project 2">
+                            <a href="#single-project" class="show_hide more" rel="#slidingDiv1">
+                                <i class="icon-plus"></i>
+                            </a>
+                            <h3>Adrian & Consuella</h3>
+                            <p>Eveniment</p>
+                            <div class="mask"></div>
+                        </div>
                     </li>
-                    <li class="filter" data-filter="photo">
-                        <a href="#noAction">Evenimente</a>
+                    <li class="span4 mix identity">
+                        <div class="thumbnail">
+                            <img src="images/Portfolio03.png" alt="project 3">
+                            <a href="#single-project" class="more show_hide" rel="#slidingDiv2">
+                                <i class="icon-plus"></i>
+                            </a>
+                            <h3>Hobbydance camp</h3>
+                            <p>Stagiu de pregatire</p>
+                            <div class="mask"></div>
+                        </div>
                     </li>
-                    <li class="filter" data-filter="identity">
-                        <a href="#noAction">Antrenamente</a>
+                    <li class="span4 mix web">
+                        <div class="thumbnail">
+                            <img src="images/Portfolio04.png" alt="project 4">
+                            <a href="#single-project" class="show_hide more" rel="#slidingDiv3">
+                                <i class="icon-plus"></i>
+                            </a>
+                            <h3>Moscovia Championship 2017</h3>
+                            <p>Competitie</p>
+                            <div class="mask"></div>
+                        </div>
+                    </li>
+                    <li class="span4 mix photo">
+                        <div class="thumbnail">
+                            <img src="images/Portfolio05.png" alt="project 5">
+                            <a href="#single-project" class="show_hide more" rel="#slidingDiv4">
+                                <i class="icon-plus"></i>
+                            </a>
+                            <h3>Ai puterea sa reusesti - Vodafone</h3>
+                            <p>Spot publicitar</p>
+                            <div class="mask"></div>
+                        </div>
+                    </li>
+                    <li class="span4 mix identity">
+                        <div class="thumbnail">
+                            <img src="images/Portfolio06.png" alt="project 6">
+                            <a href="#single-project" class="show_hide more" rel="#slidingDiv5">
+                                <i class="icon-plus"></i>
+                            </a>
+                            <h3>Marcel Rauta</h3>
+                            <p>Antrenament</p>
+                            <div class="mask"></div>
+                        </div>
+                    </li>
+                    <li class="span4 mix web">
+                        <div class="thumbnail">
+                            <img src="images/Portfolio07.png" alt="project 7" />
+                            <a href="#single-project" class="show_hide more" rel="#slidingDiv6">
+                                <i class="icon-plus"></i>
+                            </a>
+                            <h3>Campionat National de Formatii</h3>
+                            <p>Competitie</p>
+                            <div class="mask"></div>
+                        </div>
+                    </li>
+                    <li class="span4 mix photo">
+                        <div class="thumbnail">
+                            <img src="images/Portfolio08.png" alt="project 8">
+                            <a href="#single-project" class="show_hide more" rel="#slidingDiv7">
+                                <i class="icon-plus"></i>
+                            </a>
+                            <h3>3 lucruri de vanzare - OLX</h3>
+                            <p>Spot publicitar</p>
+                            <div class="mask"></div>
+                        </div>
+                    </li>
+                    <li class="span4 mix identity">
+                        <div class="thumbnail">
+                            <img src="images/Portfolio09.png" alt="project 9">
+                            <a href="#single-project" class="show_hide more" rel="#slidingDiv8">
+                                <i class="icon-plus"></i>
+                            </a>
+                            <h3>Demonstratie</h3>
+                            <p>Antrenament</p>
+                            <div class="mask"></div>
+                        </div>
                     </li>
                 </ul>
-                <!-- Start details for portfolio project 1 -->
-                <div id="single-project">
-                    <div id="slidingDiv" class="toggleDiv row-fluid single-project">
-                        <div class="span6">
-                            <img id="img1" src="images/Portfolio01.png" alt="project 1" />
-                        </div>
-                        <div class="span6">
-                            <div class="project-description">
-                                <div class="project-title clearfix">
-                                    <h3>Paris Open 2017</h3>
-                                    <span class="show_hide close">
-                                        <i class="icon-cancel"></i>
-                                    </span>
-                                </div>
-                                <div class="project-info">
-                                    <div>
-                                        <span>Tip</span>Competitie</div>
-                                    <div>
-                                        <span>Data</span>Mai 2017</div>
-                                    <div>
-                                        <span>Locatie</span>Paris, Franta</div>
-                                </div>
-                                <p>In luna aprilie, am cucerit medalia de aur in cadrul competitiei internationale Paris Open 2017 si dorim sa multumim tuturor celor ce ne-au sustinut si ajutat pentru a ajunge la aceasta perfomanta.</p>
-                                <div class="buttonContainer">
-                                    <div class="buttonTitle">
-                                        Efecte Poza
-                                    </div>
-                                    <div class="buttons">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('blur','img1')">Blur</button>
-                                        </div >
-                                        <div class="bContainer"> 
-                                            <button class="mButton" onclick="handleEffect('contrast','img1')">Contrast</button>
-                                        </div>
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('hue','img1')">Hue</button>
-                                        </div>
-                                    </div>
-                                    <div class="buttons" id="buttPad">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('','img1')">Reset</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End details for portfolio project 1 -->
-                    <!-- Start details for portfolio project 2 -->
-                    <div id="slidingDiv1" class="toggleDiv row-fluid single-project">
-                        <div class="span6">
-                            <img id="img2" src="images/Portfolio02.png" alt="project 2">
-                        </div>
-                        <div class="span6">
-                            <div class="project-description">
-                                <div class="project-title clearfix">
-                                    <h3>Nunta Adrian & Consuella</h3>
-                                    <span class="show_hide close">
-                                        <i class="icon-cancel"></i>
-                                    </span>
-                                </div>
-                                <div class="project-info">
-                                	<div>
-                                        <span>Tip</span>Eveniment</div>
-                                    <div>
-                                        <span>Alaturi de</span>Adrian & Consuella</div>
-                                    <div>
-                                        <span>Data</span>Noiembrie 2015</div>
-                                    <div>
-                                        <span>Locatie</span>Constanta, Romania</div>
-                                </div>
-                                <p>Incepand cu anul 2015 am creat momente unice pentru evenimentele tale. Aceasta este doar o nunta in cadrul careia am participat, una din multele spectacole desfasurate.</br>Adrian:"Cuplul de dansatori a fost formidabil, iar momentul a fost spectaculos, incantand invitatii cu un strop de culoare si energie. Multumesc mult lui Gabriel si Andradei!"</p>
-                                <div class="buttonContainer">
-                                    <div class="buttonTitle">
-                                        Efecte Poza
-                                    </div>
-                                    <div class="buttons">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('blur','img2')">Blur</button>
-                                        </div >
-                                        <div class="bContainer"> 
-                                            <button class="mButton" onclick="handleEffect('contrast','img2')">Contrast</button>
-                                        </div>
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('hue','img2')">Hue</button>
-                                        </div>
-                                    </div>
-                                    <div class="buttons" id="buttPad">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('','img2')">Reset</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End details for portfolio project 2 -->
-                    <!-- Start details for portfolio project 3 -->
-                    <div id="slidingDiv2" class="toggleDiv row-fluid single-project">
-                        <div class="span6">
-                            <img id="img3" src="images/Portfolio03.png" alt="project 3">
-                        </div>
-                        <div class="span6">
-                            <div class="project-description">
-                                <div class="project-title clearfix">
-                                    <h3>Hobbydance Camp</h3>
-                                    <span class="show_hide close">
-                                        <i class="icon-cancel"></i>
-                                    </span>
-                                </div>
-                                <div class="project-info">
-                                <div>
-                                        <span>Tip</span>Stagiu de pregatire</div>
-                                    <div>
-                                        <span>Alaturi de</span>C.D.S. Hobbydance Bucuresti</div>
-                                    <div>
-                                        <span>Data</span>Februarie 2017</div>
-                                    <div>
-                                        <span>Locatie</span>Bucuresti, Romania</div>
-                                </div>
-                                <p>In anul 2017 suntem pusi pe fapte mari. Am inceput anul in forta cu antrenamente pline de dedicare si pasiune alaturi de clubul Hobbydance, in cadrul primului cantonament din acest an.</p>
-                                <div class="buttonContainer">
-                                    <div class="buttonTitle">
-                                        Efecte Poza
-                                    </div>
-                                    <div class="buttons">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('blur','img3')">Blur</button>
-                                        </div >
-                                        <div class="bContainer"> 
-                                            <button class="mButton" onclick="handleEffect('contrast','img3')">Contrast</button>
-                                        </div>
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('hue','img3')">Hue</button>
-                                        </div>
-                                    </div>
-                                    <div class="buttons" id="buttPad">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('','img3')">Reset</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End details for portfolio project 3 -->
-                    <!-- Start details for portfolio project 4 -->
-                    <div id="slidingDiv3" class="toggleDiv row-fluid single-project">
-                        <div class="span6">
-                            <img id="img4" src="images/Portfolio04.png" alt="project 4">
-                        </div>
-                        <div class="span6">
-                            <div class="project-description">
-                                <div class="project-title clearfix">
-                                    <h3>Moscovia Championship 2017</h3>
-                                    <span class="show_hide close">
-                                        <i class="icon-cancel"></i>
-                                    </span>
-                                </div>
-                                <div class="project-info">
-                                    <div>
-                                        <span>Tip</span>Competitie</div>
-                                    <div>
-                                        <span>Data</span>Aprilie 2017</div>
-                                    <div>
-                                        <span>Locatie</span>Moscova, Federatia Rusa</div>
-                                </div>
-                                <p>In luna aprilie, am reprezentat Romania in cadrul uneia dintre cele mai mari competitii, tinuta in tara de referinta din lumea dansului si a sportului, in general.</p>
-                                <div class="buttonContainer">
-                                    <div class="buttonTitle">
-                                        Efecte Poza
-                                    </div>
-                                    <div class="buttons">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('blur','img4')">Blur</button>
-                                        </div >
-                                        <div class="bContainer"> 
-                                            <button class="mButton" onclick="handleEffect('contrast','img4')">Contrast</button>
-                                        </div>
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('hue','img4')">Hue</button>
-                                        </div>
-                                    </div>
-                                    <div class="buttons" id="buttPad">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('','img4')">Reset</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End details for portfolio project 4 -->
-                    <!-- Start details for portfolio project 5 -->
-                    <div id="slidingDiv4" class="toggleDiv row-fluid single-project">
-                        <div class="span6">
-                            <video id="vodaVid" width="100%" controls>
-  									<source src="movies/movie-vodafone.mp4" type="video/mp4">
-  							</video> 
-                        </div>
-                        <div class="span6">
-                            <div class="project-description">
-                                <div class="project-title clearfix">
-                                    <h3>Ai puterea sa reusesti pe drumul tau</h3>
-                                    <span class="show_hide close">
-                                        <i class="icon-cancel"></i>
-                                    </span>
-                                </div>
-                                <div class="project-info">
-                                	<div>
-                                        <span>Tip</span>Spot publicitar</div>
-                                    <div>
-                                        <span>Alaturi de</span>Vodafone</div>
-                                    <div>
-                                        <span>Data</span>Februarie 2016</div>
-                                    <div>
-                                        <span>Link</span><a href="https://www.youtube.com/watch?v=r--ScGK9WSs">YouTube 1</a> / <a href="https://www.youtube.com/watch?v=s4SU_uMbhl8">YouTube 2</a></div>
-                                </div>
-                                <p>In anul 2016 am luat parte la spot-urile publicitare Vodafone Romania si am devenit astfel imaginea Vodafone pe ringul de dans. Am filmat aceasta reclama ce sugera puterea de a trece peste obstacole.</p>
-                                <div class="buttonContainer">
-                                    <div class="buttonTitle">
-                                        Efecte Video
-                                    </div>
-                                    <div class="buttons">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('blur')">Blur</button>
-                                        </div >
-                                        <div class="bContainer"> 
-                                            <button class="mButton" onclick="handleEffect('contrast')">Contrast</button>
-                                        </div>
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('hue')">Hue</button>
-                                        </div>
-                                    </div>
-                                    <div class="buttons" id="buttPad">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect()">Reset</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End details for portfolio project 5 -->
-                    <!-- Start details for portfolio project 6 -->
-                    <div id="slidingDiv5" class="toggleDiv row-fluid single-project">
-                        <div class="span6">
-                            <img id="img6" src="images/Portfolio06.png" alt="project 6">
-                        </div>
-                        <div class="span6">
-                            <div class="project-description">
-                                <div class="project-title clearfix">
-                                    <h3>Antrenamente Marcel Rauta</h3>
-                                    <span class="show_hide close">
-                                        <i class="icon-cancel"></i>
-                                    </span>
-                                </div>
-                                <div class="project-info">
-                                    <div>
-                                        <span>Tip</span>Antrenament</div>
-                                    <div>
-                                        <span>Data</span>Vara 2017</div>
-                                    <div>
-                                        <span>Locatie</span>Bucuresti, Romania & Stuttgart, Germania</div>
-                                </div>
-                                <p>Alaturi de antrenorul nostru de suflet, care ne-a crescut si educat inca de mici copii, ne-am pregatit intens pentru sezonul competitional.</p>
-                                <div class="buttonContainer">
-                                    <div class="buttonTitle">
-                                        Efecte Poza
-                                    </div>
-                                    <div class="buttons">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('blur','img6')">Blur</button>
-                                        </div >
-                                        <div class="bContainer"> 
-                                            <button class="mButton" onclick="handleEffect('contrast','img6')">Contrast</button>
-                                        </div>
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('hue','img6')">Hue</button>
-                                        </div>
-                                    </div>
-                                    <div class="buttons" id="buttPad">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('','img6')">Reset</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End details for portfolio project 6 -->
-                    <!-- Start details for portfolio project 7 -->
-                    <div id="slidingDiv6" class="toggleDiv row-fluid single-project">
-                        <div class="span6">
-                            <img id="img7" src="images/Portfolio07.png" alt="project 7">
-                        </div>
-                        <div class="span6">
-                            <div class="project-description">
-                                <div class="project-title clearfix">
-                                    <h3>Campionatul National de Formatii</h3>
-                                    <span class="show_hide close">
-                                        <i class="icon-cancel"></i>
-                                    </span>
-                                </div>
-                                <div class="project-info">
-                                    <div>
-                                        <span>Tip</span>Competitie</div>
-                                    <div>
-                                        <span>Data</span>Aprilie 2011</div>
-                                    <div>
-                                        <span>Locatie</span>Romania</div>
-                                </div>
-                                <p>Ne bucuram pentru ocuparea titlului de vice-campioni nationali ai Romaniei, in sfera dansului in formatie.</p>
-                                <div class="buttonContainer">
-                                    <div class="buttonTitle">
-                                        Efecte Poza
-                                    </div>
-                                    <div class="buttons">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('blur','img7')">Blur</button>
-                                        </div >
-                                        <div class="bContainer"> 
-                                            <button class="mButton" onclick="handleEffect('contrast','img7')">Contrast</button>
-                                        </div>
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('hue','img7')">Hue</button>
-                                        </div>
-                                    </div>
-                                    <div class="buttons" id="buttPad">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('','img7')">Reset</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End details for portfolio project 7 -->
-                    <!-- Start details for portfolio project 8 -->
-                    <div id="slidingDiv7" class="toggleDiv row-fluid single-project">
-                        <div class="span6">
-                            <video id="olxVid" width="100%" controls>
-  									<source src="movies/movie-olx.mp4" type="video/mp4">
-  							</video> 
-                        </div>
-                        <div class="span6">
-                            <div class="project-description">
-                                <div class="project-title clearfix">
-                                    <h3>3 lucruri de vanzare</h3>
-                                    <span class="show_hide close">
-                                        <i class="icon-cancel"></i>
-                                    </span>
-                                </div>
-                                <div class="project-info">
-                                	<div>
-                                        <span>Tip</span>Spot publicitar</div>
-                                    <div>
-                                        <span>Alaturi de</span>OLX</div>
-                                    <div>
-                                        <span>Data</span>Noiembrie 2016</div>
-                                    <div>
-                                        <span>Link</span><a href="https://www.youtube.com/watch?v=DqD71crfwIQ">YouTube</a></div>
-                                </div>
-                                <p>In anul 2016 am luat parte la spot-urile publicitare OLX in cadrul campaniei "3 lucruri de vanzare", dansand pe ritmuri de Jive, intr-o ambianta placuta, sugerand existenta unor lucruri de vanzare pana si intr-o sala de bal.</p>
-                                <div class="buttonContainer">
-                                    <div class="buttonTitle">
-                                        Efecte Video
-                                    </div>
-                                    <div class="buttons">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('blur','olxVid')">Blur</button>
-                                        </div >
-                                        <div class="bContainer"> 
-                                            <button class="mButton" onclick="handleEffect('contrast','olxVid')">Contrast</button>
-                                        </div>
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('hue','olxVid')">Hue</button>
-                                        </div>
-                                    </div>
-                                    <div class="buttons" id="buttPad">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('','olxVid')">Reset</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End details for portfolio project 8 -->
-                    <!-- Start details for portfolio project 9 -->
-                    <div id="slidingDiv8" class="toggleDiv row-fluid single-project">
-                        <div class="span6">
-                            <img id="img9" src="images/Portfolio09.png" alt="project 9">
-                        </div>
-                        <div class="span6">
-                            <div class="project-description">
-                                <div class="project-title clearfix">
-                                    <h3>Demonstratie de dans</h3>
-                                    <span class="show_hide close">
-                                        <i class="icon-cancel"></i>
-                                    </span>
-                                </div>
-                                <div class="project-info">
-                                    <div>
-                                        <span>Tip</span>Antrenament</div>
-                                    <div>
-                                        <span>Data</span>Iulie 2017</div>
-                                    <div>
-                                        <span>Locatie</span>Bucuresti, Romania</div>
-                                </div>
-                                <p>Oferim demonstratii de dans pentru orice eveniment. Am conceput un moment demonstrativ pentru a aduce dansul sportiv in prim plan si destainui putin din tainele dansului.</p>
-                                <div class="buttonContainer">
-                                    <div class="buttonTitle">
-                                        Efecte Poza
-                                    </div>
-                                    <div class="buttons">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('blur','img9')">Blur</button>
-                                        </div >
-                                        <div class="bContainer"> 
-                                            <button class="mButton" onclick="handleEffect('contrast','img9')">Contrast</button>
-                                        </div>
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('hue','img9')">Hue</button>
-                                        </div>
-                                    </div>
-                                    <div class="buttons" id="buttPad">
-                                        <div class="bContainer">
-                                            <button class="mButton" onclick="handleEffect('','img9')">Reset</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End details for portfolio project 9 -->
-                    <ul id="portfolio-grid" class="thumbnails row">
-                        <li class="span4 mix web">
-                            <div class="thumbnail">
-                                <img src="images/Portfolio01.png" alt="project 1">
-                                <a href="#single-project" class="more show_hide" rel="#slidingDiv">
-                                    <i class="icon-plus"></i>
-                                </a>
-                                <h3>Paris Open 2017</h3>
-                                <p>Competitie</p>
-                                <div class="mask"></div>
-                            </div>
-                        </li>
-                        <li class="span4 mix photo">
-                            <div class="thumbnail">
-                                <img src="images/Portfolio02.png" alt="project 2">
-                                <a href="#single-project" class="show_hide more" rel="#slidingDiv1">
-                                    <i class="icon-plus"></i>
-                                </a>
-                                <h3>Adrian & Consuella</h3>
-                                <p>Eveniment</p>
-                                <div class="mask"></div>
-                            </div>
-                        </li>
-                        <li class="span4 mix identity">
-                            <div class="thumbnail">
-                                <img src="images/Portfolio03.png" alt="project 3">
-                                <a href="#single-project" class="more show_hide" rel="#slidingDiv2">
-                                    <i class="icon-plus"></i>
-                                </a>
-                                <h3>Hobbydance camp</h3>
-                                <p>Stagiu de pregatire</p>
-                                <div class="mask"></div>
-                            </div>
-                        </li>
-                        <li class="span4 mix web">
-                            <div class="thumbnail">
-                                <img src="images/Portfolio04.png" alt="project 4">
-                                <a href="#single-project" class="show_hide more" rel="#slidingDiv3">
-                                    <i class="icon-plus"></i>
-                                </a>
-                                <h3>Moscovia Championship 2017</h3>
-                                <p>Competitie</p>
-                                <div class="mask"></div>
-                            </div>
-                        </li>
-                        <li class="span4 mix photo">
-                            <div class="thumbnail">
-                                <img src="images/Portfolio05.png" alt="project 5">
-                                <a href="#single-project" class="show_hide more" rel="#slidingDiv4">
-                                    <i class="icon-plus"></i>
-                                </a>
-                                <h3>Ai puterea sa reusesti - Vodafone</h3>
-                                <p>Spot publicitar</p>
-                                <div class="mask"></div>
-                            </div>
-                        </li>
-                        <li class="span4 mix identity">
-                            <div class="thumbnail">
-                                <img src="images/Portfolio06.png" alt="project 6">
-                                <a href="#single-project" class="show_hide more" rel="#slidingDiv5">
-                                    <i class="icon-plus"></i>
-                                </a>
-                                <h3>Marcel Rauta</h3>
-                                <p>Antrenament</p>
-                                <div class="mask"></div>
-                            </div>
-                        </li>
-                        <li class="span4 mix web">
-                            <div class="thumbnail">
-                                <img src="images/Portfolio07.png" alt="project 7" />
-                                <a href="#single-project" class="show_hide more" rel="#slidingDiv6">
-                                    <i class="icon-plus"></i>
-                                </a>
-                                <h3>Campionat National de Formatii</h3>
-                                <p>Competitie</p>
-                                <div class="mask"></div>
-                            </div>
-                        </li>
-                        <li class="span4 mix photo">
-                            <div class="thumbnail">
-                                <img src="images/Portfolio08.png" alt="project 8">
-                                <a href="#single-project" class="show_hide more" rel="#slidingDiv7">
-                                    <i class="icon-plus"></i>
-                                </a>
-                                <h3>3 lucruri de vanzare - OLX</h3>
-                                <p>Spot publicitar</p>
-                                <div class="mask"></div>
-                            </div>
-                        </li>
-                        <li class="span4 mix identity">
-                            <div class="thumbnail">
-                                <img src="images/Portfolio09.png" alt="project 9">
-                                <a href="#single-project" class="show_hide more" rel="#slidingDiv8">
-                                    <i class="icon-plus"></i>
-                                </a>
-                                <h3>Demonstratie</h3>
-                                <p>Antrenament</p>
-                                <div class="mask"></div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
             </div>
-        </section>
-        <!-- Portfolio section end -->
+        </div>
+    </section>
+    <!-- Portfolio section end -->
 
-        <!-- About us section start -->
-        <section class="section primary-section" id="about">
-            <div class="triangle"></div>
-            <div class="container">
-                <div class="title">
-                    <h1>Cine suntem?</h1>
-                    <p>Noi suntem Andrada si Gabriel, un cuplu de dansatori tineri ce ne gasim inca din copilarie pe ringul de dans. Iubim dansul si facem acest lucru cu pasiune si cu munca, reprezentand Clubul si tara la cele mai importante competitii nationale si internationale. Noi credem ca oricine poate dansa. Alatura-te noua in minunata lume a dansului!</p>
-                </div>
-                <div class="row-fluid team">
-                    <div class="span4" id="first-person">
-                        <div class="thumbnail">
-                            <img src="images/Team1.png" alt="team 1">
-                            <h3>Andrada Dode</h3>
-                            <ul class="social">
-                                <li>
-                                    <a href="https://www.facebook.com/andrada.dode">
-                                        <span class="icon-facebook-circled"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-twitter-circled"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-linkedin-circled"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="mask">
-                                <h2>Dansator & Instructor</h2>
-                                <p>Numele meu este Andrada si sunt dansatoare profesionista. Dansez de la varsta de 10 ani si am ajuns la cel mai inalt nivel, fiind de asemenea instructor de dans in Bucuresti. Oricine poate dansa. Chiar si tu!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span4" id="second-person">
-                        <div class="thumbnail">
-                            <img src="images/Team2.png" alt="team 2">
-                            <h3>Noi doi</h3>
-                            <ul class="social">
-                                <li>
-                                    <a href="">
-                                        <span class="icon-facebook-circled"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-twitter-circled"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-linkedin-circled"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="mask">
-                                <h2>Pereche de top</h2>
-                                <p>Dansam impreuna de 3 ani si reprezentam Romania in competitii WDSF(World Dance Sport Federation) Internationale. Suntem exemplul viu al vointei si al pasiunii. Descopera lumea dansului alaturi de noi!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span4" id="third-person">
-                        <div class="thumbnail">
-                            <img src="images/Team3.png" alt="team 3">
-                            <h3>Gabriel Pintea</h3>
-                            <ul class="social">
-                                <li>
-                                    <a href="https://www.facebook.com/pintea.gabriel">
-                                        <span class="icon-facebook-circled"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-twitter-circled"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <span class="icon-linkedin-circled"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="mask">
-                                <h2>Dansator & Instructor</h2>
-                                <p>Numele meu este Gabriel, am 21 de ani si dansez de cand aveam 8 ani. Am creat un program inovator in 7 pasi pentru invatare accelerata a dansului sportiv si voi fi instructorul tau si mentorul tau incepand de acum. In clubul nostru totul este bazat pe prietenie si pe pasiune.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-text centered">
-                    <h3>Despre noi</h3>
-                    <p>Our Club reprezinta perechea formata din Gabriel Pintea si Andrada Dode, pereche de top ce ofera cursuri de dans prin metode de invatare accelerata si show-uri de dans pentru diferite evenimente. Dansul sportiv a luat amploare in ultimii ani si noi consideram ca oricine poate invata sa danseze la fel ca un profesionist.</p>
-                </div>
-                <h3>Cerinte</h3>
-                <div class="row-fluid">
-                    <div class="span6">
-                        <ul class="skills">
-                            <li>
-                                <span class="bar" data-width="80%"></span>
-                                <h3>VOINTA</h3>
-                            </li>
-                            <li>
-                                <span class="bar" data-width="95%"></span>
-                                <h3>BUNA DISPOZITIE</h3>
-                            </li>
-                            <li>
-                                <span class="bar" data-width="68%"></span>
-                                <h3>O MINTE DESCHISA</h3>
-                            </li>
-                            <li>
-                                <span class="bar" data-width="70%"></span>
-                                <h3>OPTIMISM</h3>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="span6">
-                        <div class="highlighted-box center">
-                            <h1>Alatura-te noua astazi!</h1>
-                            <p>Daca iti doresti sa inveti sa dansezi, iti place sa descoperi lucruri noi si sa cunosti oameni noi, atunci ai nimerit in cel mai potrivit loc. Ai nevoie de putina VOINTA, OPTIMISM, O MINTE DESCHISA si lasa-ti toate grijile acasa sau la serviciu, caci la noi vei avea nevoie de BUNA DISPOZITIE. Vei invata multe stiluri de dans!</p>
-                            <button class="button button-sp">Inscrie-te acum!</button>
-                        </div>
-                    </div>
-                </div>
+    <!-- About us section start -->
+    <section class="section primary-section" id="about">
+        <div class="triangle"></div>
+        <div class="container">
+            <div class="title">
+                <h1>Cine suntem?</h1>
+                <p>Noi suntem Andrada si Gabriel, un cuplu de dansatori tineri ce ne gasim inca din copilarie pe ringul
+                    de dans. Iubim dansul si facem acest lucru cu pasiune si cu munca, reprezentand Clubul si tara la
+                    cele mai importante competitii nationale si internationale. Noi credem ca oricine poate dansa.
+                    Alatura-te noua in minunata lume a dansului!</p>
             </div>
-        </section>
-        <!-- About us section end -->
-
-        <section class="section secondary-section">
-            <div class="triangle"></div>
-            <div class="container centered">
-                <p class="large-text">Alege unul din pachetele noastre si incepe sa dansezi la fel ca un profesionist!</p>
-                <a href="#price" class="mButton">Danseaza cu noi!</a>
-            </div>
-        </section>
-
-        <section class="section primary-section" id="dances">
-            <div class="triangle"></div>
-            <aside>
-            <div class="container centered">
-  			<p class="large-text">Dansuri Latino-americane si Standard</p>
-  		
-  			<img src="images/dance.gif" alt="Dance" usemap="#dance" style="border-radius: 35px;">
-
-  			<map name="dance" width="100%">
-  				<area shape="circle" coords="111,168,50" href="http://www.scolidans.ro/latino" alt="Latin" target="_blank">
-  				<area shape="circle" coords="333,168,50" href="http://www.scolidans.ro/standard-de-societate" alt="Ballroom" target="_blank">
-			</map>
-			</aside>
-			</div> 	
-
-        </section>
-
-        <!-- Price section start -->
-        <section id="price" class="section secondary-section">
-            <div class="container">
-                <div class="title">
-                    <h1>Oferte</h1>
-                    <p>Prin programul flexibil, puteti alege orice pachet de lectii sau servicii, fiind perfecte pentru tine si nevoile tale.</p>
-                </div>
-                <div class="price-table row-fluid">
-                    <div class="span4 price-column">
-                        <h3>Basic</h3>
-                        <ul class="list">
-                            <li><strong>Initiere</strong> in dans</li>
-                            <li><strong>De doua ori</strong> pe saptamana</li>
-                            <li><strong>Grup restrans</strong> de dansatori</li>
-                            <li><strong>Flexibilitate</strong> in program</li>
-                        </ul>
-                        <a href="#" class="button button-ps">Aleg!</a>
-                    </div>
-                    <div class="span4 price-column">
-                        <h3>Private Pro</h3>
-                        <ul class="list">
-                            <li><strong>Privat</strong> doar noi</li>
-                            <li><strong>Nelimitat</strong> numarul de lectii</li>
-                            <li><strong>Dansul mirilor</strong> pentru marea zi</li>
-                            <li><strong>Personalizat</strong> pentru tine</li>
-                        </ul>
-                        <a href="#" class="button button-ps">Aleg!</a>
-                    </div>
-                    <div class="span4 price-column">
-                        <h3>Show</h3>
-                        <ul class="list">
-                            <li><strong>Flexibil</strong> pentru momentul tau</li>
-                            <li><strong>Standard</strong> elegant si gratios</li>
-                            <li><strong>Latino</strong> pasional si energic</li>
-                            <li><strong>~10 min</strong> /moment</li>
-                        </ul>
-                        <a href="#" class="button button-ps">Aleg!</a>
-                    </div>
-                </div>
-                <div class="centered">
-                    <p class="price-text">Contacteaza-ne pentru o oferta personalizata!</p>
-                    <a href="#contact" class="mButton">Contacteaza-ne chiar acum!</a>
-                </div>
-            </div>
-        </section>
-        <!-- Price section end -->
-
-        <!-- Newsletter section start -->
-        <section class="section third-section">
-            <div class="container newsletter">
-                <div class="sub-section">
-                    <div class="title clearfix">
-                        <div class="pull-left">
-                            <h3>Inscrie-te pentru lectia ta GRATUITA! </h3>
-                        </div>
-                    </div>
-                </div>
-                <div id="success-subscribe" class="alert alert-success invisible">
-                    <strong>Super!</strong>Te-ai inscris pentru a primi o lectie gratuita de dans. Vei fi contactat in maxim 24h chiar de catre mine!</div>
-                <div class="row-fluid">
-                    <div class="span5">
-                        <p>Doar introdu o adresa de e-mail pentru a putea beneficia de prima ta lectie de dans GRATUITA. Vei fi contactat de catre noi pentru a stabili toate informatiile.</p>
-                    </div>
-                    <div class="span7">
-                    <form action="php/newsletter.php" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate inline-form" target="_blank" novalidate>
-                    <input type="email" value="" name="email"  class="span8 required email" id="mce-EMAIL">
-                    <button type="submit"  name="subscribe" id="mc-embedded-subscribe"class="button button-sp">Inscrie-te</button>
-                     
-                    <div style="position: absolute; left: -5000px;"><input type="text" name="b_93c53aebd14896af588b33a52_238c67f1d9" tabindex="-1" value=""></div>
-                    </div>
-                    </form>
-                        
-                        
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Newsletter section end -->
-
-        <!-- Contact section start -->
-        <section id="contact" class="contact">
-            <div class="section secondary-section">
-                <div class="container">
-                    <div class="title">
-                        <h1>Contacteaza-ne!</h1>
-                        <p>Ne poti contacta in orice mod doresti. Doar spune-ne ce crezi prin una din metodele de mai jos.</p>
-                    </div>
-                </div>
-                <div class="map-wrapper">   
-                    <div id="mapid" style="height: 400px;"></div>                 
-                    <!-- <div class="container">
-                        <div class="row">
-                            <div class="span5 contact-form centered">
-                                <h3>Scrie-ne!</h3>
-                                <div id="successSend" class="alert alert-success invisible">
-                                    <strong>Super!</strong>Mesajul tau a fost trimis!</div>
-                                <div id="errorSend" class="alert alert-error invisible">Oops! A aparut o eroare!</div>
-                                <form id="contact-form" action="php/mail.php">
-                                <div class="row-fluid">
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <input class="span12" type="text" id="name" name="name" placeholder="* Nume..." />
-                                            <div class="error left-align" id="err-name">Introduceti un nume.</div>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <input class="span12" type="email" name="email" id="email" placeholder="* Adresa e-mail..." />
-                                            <div class="error left-align" id="err-email">Introduceti o adresa de e-mail valida.</div>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <textarea class="span12" name="comment" id="comment" placeholder="* Mesaj..."></textarea>
-                                            <div class="error left-align" id="err-comment">Introduceti un mesaj.</div>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <button id="send-mail" class="message-btn">Trimite</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-                <div class="container">
-                    <div class="span9 center contact-info">
-                        <p>Bucuresti, Romania</p>
-                        <p class="info-mail">contact@ourclub.ro</p>
-                        <p>+4 0742 075 850</p>
-                        <p>+4 0732 949 370</p>
-                        <div class="title">
-                            <h3>Urmareste-ne!</h3>
-                        </div>
-                    </div>
-                    <div class="row-fluid centered">
+            <div class="row-fluid team">
+                <div class="span4" id="first-person">
+                    <div class="thumbnail">
+                        <img src="images/Team1.jpg" alt="andrada">
+                        <h3>Andrada Dode</h3>
                         <ul class="social">
                             <li>
-                                <a href="https://www.facebook.com/pintea.gabriel/">
+                                <a href="https://www.facebook.com/andrada.dode">
                                     <span class="icon-facebook-circled"></span>
                                 </a>
                             </li>
-                           <!-- <li>
+                            <li>
                                 <a href="">
                                     <span class="icon-twitter-circled"></span>
                                 </a>
@@ -1111,173 +877,421 @@ session_start();
                                     <span class="icon-linkedin-circled"></span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="">
-                                    <span class="icon-pinterest-circled"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <span class="icon-dribbble-circled"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <span class="icon-gplus-circled"></span>
-                                </a>
-                            </li> -->
                         </ul>
+                        <div class="mask">
+                            <h2>Dansator & Instructor</h2>
+                            <p>Numele meu este Andrada si sunt dansatoare profesionista. Dansez de la varsta de 10 ani
+                                si am ajuns la cel mai inalt nivel, fiind de asemenea instructor de dans in Bucuresti.
+                                Oricine poate dansa. Chiar si tu!</p>
+                        </div>
                     </div>
-                    <hr>
+                </div>
+                <div class="span4" id="second-person">
+                    <div class="thumbnail">
+                        <img src="images/Team2.png" alt="team">
+                        <h3>Noi doi</h3>
+                        <ul class="social">
+                            <li>
+                                <a href="">
+                                    <span class="icon-facebook-circled"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="icon-twitter-circled"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="icon-linkedin-circled"></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="mask">
+                            <h2>Pereche de top</h2>
+                            <p>Dansam impreuna de 7 ani si reprezentam Romania in competitii WDSF(World Dance Sport
+                                Federation) Internationale. Suntem exemplul viu al vointei si al pasiunii. Descopera
+                                lumea dansului alaturi de noi!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="span4" id="third-person">
+                    <div class="thumbnail">
+                        <img src="images/Team3.jpg" alt="gabriel">
+                        <h3>Gabriel Pintea</h3>
+                        <ul class="social">
+                            <li>
+                                <a href="https://www.facebook.com/pintea.gabriel">
+                                    <span class="icon-facebook-circled"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="icon-twitter-circled"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="icon-linkedin-circled"></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="mask">
+                            <h2>Dansator & Instructor</h2>
+                            <p>Numele meu este Gabriel, am 25 de ani si dansez de cand aveam 8 ani. Am creat un program
+                                inovator in 7 pasi pentru invatare accelerata a dansului sportiv si voi fi instructorul
+                                tau si mentorul tau incepand de acum. In clubul nostru totul este bazat pe prietenie si
+                                pe pasiune.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-        <!-- Contact section end -->
-
-        <!-- Footer section start -->
-        <section class="footer">
-            <p>&copy; 2021 Created by <a href="https://www.facebook.com/pintea.gabriel/">Gabriel Pintea and Udrescu Catalin</a></p>
-        </section>
-        <!-- Footer section end -->
-
-         <!-- ScrollUp button start -->
-        <div class="scrollup">
-            <a href="#">
-                <i class="icon-up-open"></i>
-            </a>
+            <div class="about-text centered">
+                <h3>Despre noi</h3>
+                <p>Our Club reprezinta perechea formata din Gabriel Pintea si Andrada Dode, pereche de top ce ofera
+                    cursuri de dans prin metode de invatare accelerata si show-uri de dans pentru diferite evenimente.
+                    Dansul sportiv a luat amploare in ultimii ani si noi consideram ca oricine poate invata sa danseze
+                    la fel ca un profesionist.</p>
+            </div>
+            <h3>Cerinte</h3>
+            <div class="row-fluid">
+                <div class="span6">
+                    <ul class="skills">
+                        <li>
+                            <span class="bar" data-width="80%"></span>
+                            <h3>VOINTA</h3>
+                        </li>
+                        <li>
+                            <span class="bar" data-width="95%"></span>
+                            <h3>BUNA DISPOZITIE</h3>
+                        </li>
+                        <li>
+                            <span class="bar" data-width="68%"></span>
+                            <h3>O MINTE DESCHISA</h3>
+                        </li>
+                        <li>
+                            <span class="bar" data-width="70%"></span>
+                            <h3>OPTIMISM</h3>
+                        </li>
+                    </ul>
+                </div>
+                <div class="span6">
+                    <div class="highlighted-box center">
+                        <h1>Alatura-te noua astazi!</h1>
+                        <p>Daca iti doresti sa inveti sa dansezi, iti place sa descoperi lucruri noi si sa cunosti
+                            oameni noi, atunci ai nimerit in cel mai potrivit loc. Ai nevoie de putina VOINTA, OPTIMISM,
+                            O MINTE DESCHISA si lasa-ti toate grijile acasa sau la serviciu, caci la noi vei avea nevoie
+                            de BUNA DISPOZITIE. Vei invata multe stiluri de dans!</p>
+                        <button class="button button-sp">Inscrie-te acum!</button>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+    <!-- About us section end -->
+
+    <section class="section secondary-section">
+        <div class="triangle"></div>
+        <div class="container centered">
+            <p class="large-text">Alege unul din pachetele noastre si incepe sa dansezi la fel ca un profesionist!</p>
+            <a href="#price" class="mButton">Danseaza cu noi!</a>
+        </div>
+    </section>
+
+    <section class="section primary-section" id="dances">
+        <div class="triangle"></div>
+        <aside>
+            <div class="container centered">
+                <p class="large-text">Dansuri Latino-americane si Standard</p>
+
+                <img src="images/dance.gif" alt="Dance" usemap="#dance" style="border-radius: 35px;">
+
+                <map name="dance" width="100%">
+                    <area shape="circle" coords="111,168,50" href="http://www.scolidans.ro/latino" alt="Latin"
+                        target="_blank">
+                    <area shape="circle" coords="333,168,50" href="http://www.scolidans.ro/standard-de-societate"
+                        alt="Ballroom" target="_blank">
+                </map>
+        </aside>
+        </div>
+
+    </section>
+
+    <!-- Price section start -->
+    <section id="price" class="section secondary-section">
+        <div class="container">
+            <div class="title">
+                <h1>Oferte</h1>
+                <p>Prin programul flexibil, puteti alege orice pachet de lectii sau servicii, fiind perfecte pentru tine
+                    si nevoile tale.</p>
+            </div>
+            <div class="price-table row-fluid">
+                <div class="span4 price-column">
+                    <h3>Basic</h3>
+                    <ul class="list">
+                        <li><strong>Initiere</strong> in dans</li>
+                        <li><strong>De doua ori</strong> pe saptamana</li>
+                        <li><strong>Grup restrans</strong> de dansatori</li>
+                        <li><strong>Flexibilitate</strong> in program</li>
+                    </ul>
+                    <a href="#" class="button button-ps">Aleg!</a>
+                </div>
+                <div class="span4 price-column">
+                    <h3>Private Pro</h3>
+                    <ul class="list">
+                        <li><strong>Privat</strong> doar noi</li>
+                        <li><strong>Nelimitat</strong> numarul de lectii</li>
+                        <li><strong>Dansul mirilor</strong> pentru marea zi</li>
+                        <li><strong>Personalizat</strong> pentru tine</li>
+                    </ul>
+                    <a href="#" class="button button-ps">Aleg!</a>
+                </div>
+                <div class="span4 price-column">
+                    <h3>Show</h3>
+                    <ul class="list">
+                        <li><strong>Flexibil</strong> pentru momentul tau</li>
+                        <li><strong>Standard</strong> elegant si gratios</li>
+                        <li><strong>Latino</strong> pasional si energic</li>
+                        <li><strong>~10 min</strong> /moment</li>
+                    </ul>
+                    <a href="#" class="button button-ps">Aleg!</a>
+                </div>
+            </div>
+            <div class="centered">
+                <p class="price-text">Contacteaza-ne pentru o oferta personalizata!</p>
+                <a href="#contact" class="mButton">Contacteaza-ne chiar acum!</a>
+            </div>
+        </div>
+    </section>
+    <!-- Price section end -->
+
+    <!-- Newsletter section start -->
+    <section class="section third-section">
+        <div class="container newsletter">
+            <div class="sub-section">
+                <div class="title clearfix">
+                    <div class="pull-left">
+                        <h3>Inscrie-te pentru lectia ta GRATUITA! </h3>
+                    </div>
+                </div>
+            </div>
+            <div id="success-subscribe" class="alert alert-success invisible">
+                <strong>Super!</strong>Te-ai inscris pentru a primi o lectie gratuita de dans. Vei fi contactat in maxim
+                24h chiar de catre mine!
+            </div>
+            <div class="row-fluid">
+                <div class="span5">
+                    <p>Doar introdu o adresa de e-mail pentru a putea beneficia de prima ta lectie de dans GRATUITA. Vei
+                        fi contactat de catre noi pentru a stabili toate informatiile.</p>
+                </div>
+                <div class="span7">
+                    <form action="php/newsletter.php" method="post" id="mc-embedded-subscribe-form"
+                        name="mc-embedded-subscribe-form" class="validate inline-form" target="_blank" novalidate>
+                        <input type="email" value="" name="email" class="span8 required email" id="mce-EMAIL">
+                        <button type="submit" name="subscribe" id="mc-embedded-subscribe"
+                            class="button button-sp">Inscrie-te</button>
+
+                        <div style="position: absolute; left: -5000px;"><input type="text"
+                                name="b_93c53aebd14896af588b33a52_238c67f1d9" tabindex="-1" value=""></div>
+                </div>
+                </form>
+
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Newsletter section end -->
+
+    <!-- Contact section start -->
+    <section id="contact" class="contact">
+        <div class="section secondary-section">
+            <div class="container">
+                <div class="title">
+                    <h1>Contacteaza-ne!</h1>
+                    <p>Ne poti contacta in orice mod doresti. Doar spune-ne ce crezi prin una din metodele de mai jos.
+                    </p>
+                </div>
+            </div>
+            <div class="map-wrapper">
+                <div id="mapid" style="height: 400px;"></div>
+            </div>
+            <div class="container">
+                <div class="span9 center contact-info">
+                    <p>Bucuresti, Romania</p>
+                    <p class="info-mail">contact@ourclub.ro</p>
+                    <p>+4 0742 075 850</p>
+                    <p>+4 0732 949 370</p>
+                </div>
+                <div class="row-fluid centered">
+                    <ul class="social">
+                        <li>
+                            <a href="https://www.facebook.com/pintea.gabriel/">
+                                <span class="icon-facebook-circled"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+    <!-- Contact section end -->
+
+    <!-- Footer section start -->
+    <section class="footer">
+        <p>&copy; 2021 Created by <a href="https://www.facebook.com/pintea.gabriel/">Gabriel Pintea and Udrescu
+                Catalin</a></p>
+    </section>
+    <!-- Footer section end -->
+
+    <!-- ScrollUp button start -->
+    <div class="scrollup">
+        <a href="#">
+            <i class="icon-up-open"></i>
+        </a>
+    </div>
     <!-- ScrollUp button end -->
 
     <!-- Include javascript -->
-        <script src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/jquery.mixitup.js"></script>
-        <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/modernizr.custom.js"></script>
-        <script type="text/javascript" src="js/jquery.bxslider.js"></script>
-        <script type="text/javascript" src="js/jquery.cslider.js"></script>
-        <script type="text/javascript" src="js/jquery.placeholder.js"></script>
-        <script type="text/javascript" src="js/jquery.inview.js"></script>
-        <!-- Load google maps api and call initializeMap function defined in app.js -->
-        
-        <!-- css3-mediaqueries.js for IE8 or older -->
-        <!--[if lt IE 9]>
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.mixitup.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="js/jquery.cslider.js"></script>
+    <script type="text/javascript" src="js/jquery.placeholder.js"></script>
+    <script type="text/javascript" src="js/jquery.inview.js"></script>
+
+
+    <!-- css3-mediaqueries.js for IE8 or older -->
+    <!--[if lt IE 9]>
             <script src="js/respond.min.js"></script>
         <![endif]-->
-        <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 
-        <script type="text/javascript">
-            
-            $(window).load(function() {
-                if (!sessionStorage.previouslyVisited)
-                {
-                    $(".loader").delay(7000).fadeOut("slow");                  
-                }
-                else
-                {
-                    $(".loader").fadeOut("fast");
-                }               
-            });
-        
-            </script>
-            <script type="text/javascript">
-            
-            $(window).load(function() { 
-                if (!sessionStorage.previouslyVisited)
-                {               
-                    $(".messagetwo").delay(3000).fadeIn("slow");
-                    $(".messagetwo").delay(3000).fadeOut("slow");
-                    
-                    sessionStorage.previouslyVisited=true;
-                }
 
-                                    
-            });
-            
-            </script>
-            <script type="text/javascript">
-            $(window).load(function() {
-                var mymap = L.map('mapid').locate({setView: true, maxZoom: 16});
-            
+    <!-- Loading screen -->
+    <script type="text/javascript">
 
-                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                    maxZoom: 18,
-                    id: 'mapbox/streets-v11',
-                    tileSize: 512,
-                    zoomOffset: -1,
-                    accessToken: 'pk.eyJ1IjoiZ2FiaXdoeW1lIiwiYSI6ImNranQ4bnY5ajAyd2cycG81MDE5b3c5aWcifQ.sejYCk9aPetEvTjj3w7SMA'
-                }).addTo(mymap);
-                
-                // var popup = L.popup();
-                // function onMapClick(e) {
-                //     popup
-                //         .setLatLng(e.latlng)
-                //         .setContent("You clicked the map at " + e.latlng.toString())
-                //         .openOn(mymap);
-                // }
-                // mymap.on('click', onMapClick);
+        $(window).load(function () {
+            $(".loader").delay(8000).fadeOut("slow");
+            $(".messagetwo").delay(2000).fadeIn("slow");
+            $("#dancers").delay(2000).fadeIn("slow");
+            $(".messagetwo").delay(4000).fadeOut("slow");
+            $("#dancers").delay(4000).fadeOut("slow");
+        });
 
-                function onLocationFound(e) {
-                    var radius = e.accuracy;
+    </script>
+    <!-- LEAFLET MAP and geolocation with partner dance schools markers-->
+    <script type="text/javascript">
+        $(window).load(function () {
+            var mymap = L.map('mapid').locate({ setView: true, maxZoom: 16 });
 
-                    L.marker(e.latlng).addTo(mymap)
-                        .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
-                    L.circle(e.latlng, radius).addTo(mymap);
-                }
-                mymap.on('locationfound', onLocationFound);
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                accessToken: 'pk.eyJ1IjoiZ2FiaXdoeW1lIiwiYSI6ImNranQ4bnY5ajAyd2cycG81MDE5b3c5aWcifQ.sejYCk9aPetEvTjj3w7SMA'
+            }).addTo(mymap);
 
-                function onLocationError(e) {
-                    alert(e.message);
-                }
-                mymap.on('locationerror', onLocationError);
+            // var popup = L.popup();
+            // function onMapClick(e) {
+            //     popup
+            //         .setLatLng(e.latlng)
+            //         .setContent("You clicked the map at " + e.latlng.toString())
+            //         .openOn(mymap);
+            // }
+            // mymap.on('click', onMapClick);
 
-                
-                var data = [{
-                    "type": "Feature",
-                    "properties": {
-                        "name": "Vertigo",
-                        "amenity": "Dance School and Cafe",
-                        "popupContent": "Luxury dance school in Pipera with a specialty coffee shop!"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [26.131883, 44.496455]
-                    }
+            function onLocationFound(e) {
+                var radius = e.accuracy;
+
+                L.marker(e.latlng).addTo(mymap)
+                    .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+                L.circle(e.latlng, radius).addTo(mymap);
+            }
+            mymap.on('locationfound', onLocationFound);
+
+            function onLocationError(e) {
+                alert(e.message);
+            }
+            mymap.on('locationerror', onLocationError);
+
+
+            var data = [{
+                "type": "Feature",
+                "properties": {
+                    "name": "Vertigo",
+                    "amenity": "Dance School and Cafe",
+                    "popupContent": "Luxury dance school in Pipera with a specialty coffee shop!"
                 },
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "name": "HobbyDance",
-                        "amenity": "Dance School",
-                        "popupContent": "One of the biggest dance school in Romania"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [26.145106, 44.370526]
-                    }
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [26.131883, 44.496455]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "name": "HobbyDance",
+                    "amenity": "Dance School",
+                    "popupContent": "One of the biggest dance schools in Romania"
                 },
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "name": "FIRST",
-                        "amenity": "Dance Studio",
-                        "popupContent": "Social dancing and Pro-Am classes"
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [26.116412, 44.432538]
-                    }
-                }];
-                
-                var layerGroup = L.geoJSON(data, {
-                    onEachFeature: function (feature, layer) {
-                        layer.bindPopup('<h4 style="color: blue;">'+feature.properties.name+'</h4>'+feature.properties.amenity + '<br>' + feature.properties.popupContent);
-                    }
-                    }).addTo(mymap);
-                                
-            });
-            </script>
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [26.145106, 44.370526]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "name": "FIRST",
+                    "amenity": "Dance Studio",
+                    "popupContent": "Social dancing and Pro-Am classes"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [26.116412, 44.432538]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "name": "Alessia",
+                    "amenity": "Dance School",
+                    "popupContent": "Dancesport school with numerous champions"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [26.048504, 44.432113]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "name": "Essence",
+                    "amenity": "Dance Academy",
+                    "popupContent": "Latin dances dance academy"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [26.121551, 44.42065]
+                }
+            }];
+
+            var layerGroup = L.geoJSON(data, {
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopup('<h4 style="color: blue;">' + feature.properties.name + '</h4>' + feature.properties.amenity + '<br>' + feature.properties.popupContent);
+                }
+            }).addTo(mymap);
+
+        });
+    </script>
 
 </body>
+
 </html>

@@ -1153,19 +1153,18 @@
     <!-- Contact section end -->
 
     <!-- Synthetizer section start -->
-    <section class="section secondary-section">        
-        <script src="js/synth.js"></script>
+    <section class="section secondary-section">
 
         <div class="canvasContainer">
             <div class="options">
-                <button onclick="initOsc()">play</button>
+                <button onclick="initOsc();graphInit()">play</button>
             </div>
             <div class="opt oscOptions">
                 <div class="opt filter">
                     <div class="filterType">
                         <div class="filopt">
                             <div class="freqType" onclick="handleFreqType('lowpass')">lowpass</div>
-                            <div class="freqType" onclick="handleFreqType('highpass')">highpass</div>
+                            <div class="freqType" onclick="handleFreqType('highpass')">highpass</div>    
                             <div class="freqType" onclick="handleFreqType('bandpass')">bandpass</div>
                         </div>
                         <div class="filopt">
@@ -1177,28 +1176,35 @@
                     <div class="filFreq">
                         <div class="freqTitle">frequency</div>
                         <div class="knob" onclick="handleFreq()">
-                            <img id="nobSvg" src="svg/method-draw-image.svg" />
+                            <img id="nobSvg" src="svg/method-draw-image.svg"/>
                         </div>
                     </div>
                 </div>
                 <div class="rightOpt">
                     <div class="rightTop">
-                        <div class="wave">
+                        <div class="opt wave">
                             <div onclick="handleWaveType('sine')">sine</div>
                             <div onclick="handleWaveType('square')">square</div>
                             <div onclick="handleWaveType('sawtooth')">sawtooth</div>
                             <div onclick="handleWaveType('triangle')">triangle</div>
                         </div>
-                        <div class="master">
-
-                        </div>
                     </div>
-                    <div class="envelope">
-
+                    <div class="opt envelope">
+                        <div class="freqTitle" onclick="handleEnv('attack')">attack</div>
+                            <div class="knob" onclick="handleEnv('attack')">
+                                <img src="svg//method-draw-image.svg"/>
+                            </div>
+                            <div class="freqTitle" onclick="handleEnv('release')">release</div>
+                            <div class="knob" onclick="handleEnv('attack')">
+                                <img src="svg//method-draw-image.svg"/>
+                            </div>
                     </div>
                 </div>
             </div>
+            <canvas id="vis"></canvas>
+
         </div>
+        <script src="js/synth.js"></script>
     </section>
     <!-- Synthetizer section end -->
 

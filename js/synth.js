@@ -1,5 +1,12 @@
 var context = new AudioContext();
-var ofilter = context.createBiquadFilter()
+var canvas = document.getElementById("vis");
+canvas.height = 200;
+canvas.width= 500;
+var cContext = canvas.getContext("2d");
+cContext.strokeStyle="#2053ce";
+var ofilter = context.createBiquadFilter();
+var analyser = context.createAnalyser();
+analyser.fftSize = 2048;
 ofilter.type = "lowpass"
 ofilter.frequency.value = 8000;
 window.ofilter = ofilter;
@@ -11,8 +18,7 @@ window.midiArray = [];
 
 var attack = 0.1,
 release = 0.1;
-
-var mousedownID = -1
+var data = new Uint8Array(analyser.frequencyBinCount)
 
 const rnJesus  = (mod) => {
     return Math.random() * mod
@@ -62,7 +68,7 @@ const initOsc = () => {
     osc.frequency.setValueAtTime(440, context.currentTime);
     osc.start();
     window.osc = osc;
-    window.osc.connect(gain).connect(window.ofilter).connect(context.destination);
+    window.osc.connect(analyser).connect(gain).connect(window.ofilter).connect(context.destination);
 }
 
 const connectChain = (freq) => {
@@ -113,7 +119,7 @@ const failure = () => {}
 navigator.requestMIDIAccess().then(success, failure);
 
 const handleFreqType = (type) => {
-    
+
     window.ofilter.type = type;
 }
 
@@ -123,4 +129,34 @@ const handleFreq = () =>  {
 
 const handleWaveType = (type) => {
     window.osc.type = type;
+}
+
+const handleEnv = (type) => {
+    if (type === "attack")
+        attack = rnJesus(1);
+    else 
+    {
+        release = rnJesus(1);
+    }
+
+    console.log(attack,release);
+}
+
+const graphDraw = (data) => {
+    let localData = [...data];
+    cContext.clearRect(0, 0, canvas.width, canvas.height);
+    let space = canvas.width / data.length;
+    localData.forEach((value, i) => {
+        cContext.beginPath();
+        cContext.moveTo(space*i,canvas.height);
+        cContext.lineTo(space*i,canvas.height - value);
+        cContext.stroke();
+    })
+
+}
+
+const graphInit = () => {
+    requestAnimationFrame(graphInit)
+    analyser.getByteFrequencyData(data);
+    graphDraw(data);
 }

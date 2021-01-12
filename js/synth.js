@@ -113,6 +113,7 @@ const failure = () => {}
 navigator.requestMIDIAccess().then(success, failure);
 
 const handleFreqType = (type) => {
+    
     window.ofilter.type = type;
 }
 

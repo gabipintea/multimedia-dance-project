@@ -17,12 +17,7 @@ session_start();
         sa fuga volumul
 
     Gabi:
-        weird technology implemented
-
-
-
-
-        
+        weird technology implemented       
 -->
 
 <!DOCTYPE html>
@@ -70,6 +65,10 @@ session_start();
 
         <meta name="msapplication-TileImage" content="images/ico/icon-144x144.png">
         <meta name="msapplication-TileColor" content="#2053ce">
+
+        <!-- Leaflet maps -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     </head>
     
     <body>
@@ -141,7 +140,7 @@ session_start();
         <source src="audio/bg.mp3" type="audio/mp3" />
     </audio>
     <script>
-     document.getElementsByClassName("button").addEventListener('click', () => {document.getElementById("music").muted = false})
+     document.getElementsByClassName("button")[0].addEventListener('click', () => {document.getElementById("music").muted = false})
     </script>
         <!-- Start home section -->
         <section id="home">
@@ -1065,7 +1064,8 @@ session_start();
                         <p>Ne poti contacta in orice mod doresti. Doar spune-ne ce crezi prin una din metodele de mai jos.</p>
                     </div>
                 </div>
-                <div class="map-wrapper">                    
+                <div class="map-wrapper">   
+                    <div id="mapid" style="height: 400px;"></div>                 
                     <div class="container">
                         <div class="row">
                             <div class="span5 contact-form centered">
@@ -1156,7 +1156,7 @@ session_start();
 
         <!-- Footer section start -->
         <section class="footer">
-            <p>&copy; 2017 Created by <a href="https://www.facebook.com/pintea.gabriel/">Gabriel Pintea</a></p>
+            <p>&copy; 2021 Created by <a href="https://www.facebook.com/pintea.gabriel/">Gabriel Pintea and Udrescu Catalin</a></p>
         </section>
         <!-- Footer section end -->
 
@@ -1213,6 +1213,50 @@ session_start();
                                     
             });
             
+            </script>
+            <script type="text/javascript">
+            $(window).load(function() {
+                var mymap = L.map('mapid').locate({setView: true, maxZoom: 16});
+            
+
+                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 18,
+                    id: 'mapbox/streets-v11',
+                    tileSize: 512,
+                    zoomOffset: -1,
+                    accessToken: 'pk.eyJ1IjoiZ2FiaXdoeW1lIiwiYSI6ImNranQ4bnY5ajAyd2cycG81MDE5b3c5aWcifQ.sejYCk9aPetEvTjj3w7SMA'
+                }).addTo(mymap);
+                //var marker = L.marker([44.492736, 26.145658]).addTo(mymap);
+                var popup = L.popup();
+
+                    function onMapClick(e) {
+                        popup
+                            .setLatLng(e.latlng)
+                            .setContent("You clicked the map at " + e.latlng.toString())
+                            .openOn(mymap);
+                    }
+
+                    mymap.on('click', onMapClick);
+
+                    function onLocationFound(e) {
+                        var radius = e.accuracy;
+
+                        L.marker(e.latlng).addTo(mymap)
+                            .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+                        L.circle(e.latlng, radius).addTo(mymap);
+                    }
+
+                    mymap.on('locationfound', onLocationFound);
+
+                    function onLocationError(e) {
+                        alert(e.message);
+                    }
+
+                    mymap.on('locationerror', onLocationError);
+                
+            });
             </script>
 
 </body>

@@ -1,5 +1,6 @@
 :root {
   --purple: #2053ce;
+  --black: #181A1C;
 }
 
 .buttonContainer {
@@ -42,4 +43,70 @@
 
 #buttPad {
   padding-top: 5px;
+}
+
+.canvasContainer {
+  background-color: var(--black)
+}
+
+.oscOptions {
+  width: 100%;
+  max-width: 1200px;
+  height: 700px;
+  color: var(--purple)
+}
+
+.opt{
+  display: flex;
+  border: 2px solid var(--purple);
+  border-radius: 15px;
+  margin: auto;
+  width: 100%;
+  height: ;
+  background-color: transparent;
+}
+
+.filter {
+  flex-direction: column;
+}
+
+.filterType {
+  display: flex;
+  width: 60%;
+  margin: auto;
+  justify-content: space-between;
+}
+.filopt {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.filopt > div {
+  text-align: center;
+}
+
+.freqTitle {
+  width: fit-content;
+  text-align: center;
+  margin: auto;
+}
+
+.knob {
+  width: 50px;
+  margin: auto;
+}
+.knob> img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin: auto;
+}
+
+#nobSvg {
+  rotate: 90deg;;
+}
+
+.freqType:hover {
+  color: white;
 }

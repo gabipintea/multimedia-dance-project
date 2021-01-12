@@ -1173,9 +1173,46 @@ session_start();
 
         <div class="canvasContainer">
             <div class="options">
-
+                <button onclick="initOsc()">play</button>
             </div>
-            <canvas id="piano" width="1400", height="700"></canvas>
+            <div class="opt oscOptions">
+                <div class="opt filter">
+                    <div class="filterType">
+                        <div class="filopt">
+                            <div class="freqType" onclick="handleFreqType('lowpass')">lowpass</div>
+                            <div class="freqType" onclick="handleFreqType('highpass')">highpass</div>    
+                            <div class="freqType" onclick="handleFreqType('bandpass')">bandpass</div>
+                        </div>
+                        <div class="filopt">
+                            <div class="freqType" onclick="handleFreqType('highshelf')">highshelf</div>
+                            <div class="freqType" onclick="handleFreqType('lowshelf')">lowshelf</div>
+                            <div class="freqType" onclick="handleFreqType('notch')">notch</div>
+                        </div>
+                    </div>
+                    <div class="filFreq">
+                        <div class="freqTitle">frequency</div>
+                        <div class="knob" onclick="handleFreq()">
+                            <img id="nobSvg" src="svg/method-draw-image.svg"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightOpt">
+                    <div class="rightTop">
+                        <div class="wave">
+                            <div onclick="handleWaveType('sine')">sine</div>
+                            <div onclick="handleWaveType('square')">square</div>
+                            <div onclick="handleWaveType('sawtooth')">sawtooth</div>
+                            <div onclick="handleWaveType('triangle')">triangle</div>
+                        </div>
+                        <div class="master">
+
+                        </div>
+                    </div>
+                    <div class="envelope">
+
+                    </div>
+                </div>
+            </div>
         </div>
 
 

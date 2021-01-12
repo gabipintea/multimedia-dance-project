@@ -11,7 +11,7 @@ session_start();
         butoane de efecte pe video( blur, contrast, hue ) - DONE
         svg de schimbat iconitele de la pluton
         ceva cu canvas
-        audio (scroll to insanity)
+        audio (scroll to insanity) - IN PROGRESS
         img effects, ca la video (tot alea de la portofoliu) - DONE
         animations - 1 stanga-dreapta, 2 flip orizontal, 3 opacity
         sa fuga volumul
@@ -101,6 +101,23 @@ session_start();
     
     <div class="messagetwo"><h1>Join Our Club and dance like a pro!</h1></div>
 
+    <script>
+        window.addEventListener('scroll', () => {clamp(window.pageYOffset);})
+
+        window.addEventListener('keydown', (e) => {
+            if(event.key === "m")
+            {   
+                if(document.getElementById("music").muted != true)
+                    document.getElementById('music').muted = true;
+                else
+                    document.getElementById("music").muted = false; 
+                console.log("mute")   
+            }
+            else if(event.key === "n")
+                document.getElementById('music').pause();
+        })
+    </script>
+
     <header>
         <div class="navbar">
             <div class="navbar-inner">
@@ -136,13 +153,9 @@ session_start();
             </div>
         </div>
     </header>
-    <iframe src="audio/silence.mp3" allow="autoplay" style="display: none" ></iframe>
-    <audio id="music" hidden="true" autoplay muted>
+    <audio id="music" muted autoplay loop hidden="true"> 
         <source src="audio/bg.mp3" type="audio/mp3" />
     </audio>
-    <script>
-     document.getElementsByClassName("button").addEventListener('click', () => {document.getElementById("music").muted = false})
-    </script>
         <!-- Start home section -->
         <section id="home">
             <!-- Start cSlider -->
@@ -157,7 +170,7 @@ session_start();
                         <h2 class="fittext2">Bine ai venit la Our Club</h2>
                         <h4>Arta & Pasiune</h4>
                         <p>Ia parte la o noua lume plina de pasiune, arta si frumusete. Alatura-te noua si putem incepe calatoria!</p>
-                        <a href="#" class="da-link button">MAI MULT</a>
+                        <a href="#" class="da-link button" id="unmute">MAI MULT</a>
                         <div class="da-img">
                             <img src="images/Slider01.png" alt="image01" width="320">
                         </div>
@@ -195,7 +208,9 @@ session_start();
             </div>
         </section>
         <!-- End home section -->
-
+        <script>
+            document.getElementById("unmute").addEventListener('click', () => {document.getElementById("music").play();initFilter();document.getElementById("music").muted = false});
+           </script>
         <!-- Service section start -->
         <section class="section primary-section" id="service">
             <div class="container">
@@ -1153,6 +1168,16 @@ session_start();
             </div>
         </section>
         <!-- Contact section end -->
+
+        <script src="js/synth.js"></script>
+
+        <div class="canvasContainer">
+            <div class="options">
+
+            </div>
+            <canvas id="piano" width="1400", height="700"></canvas>
+        </div>
+
 
         <!-- Footer section start -->
         <section class="footer">
